@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Men&Women Wear Navbar</title>
+      <link rel="stylesheet" href="styles.css">
+      <script src="https://unpkg.com/lucide@latest"></script>
+      <script defer src="script.js" ></script>
+   </head>
+   <body>
+    <!-- navbar-container-------------------------------------------------------------------- -->
+      <div class="nav-container">
+         <nav class="navbar">
+            <div class="nav-top">
+               <div class="nav-left">
+                  <i data-lucide="menu" class="icon"></i>
+               </div>
+              <a href="index.html"><div class="nav-center">
+                  <div class="logo-circle">M&W</div>
+                  <span class="logo-text">STUDIO</span>
+               </div></a> 
+               <div class="nav-right">
+                  <!-- <a href="#">About</a>
+                  <a href="#">FAQs</a> -->
+                  <a href=".../../other pages/html pages/wishlist.html" class="wishlist-link">
+            <i data-lucide="heart"></i>
+            <span class="wishlist-count" id="wishlist-badge">0</span>
+        </a>
+                  <div class="cart-icon">
+                     <i data-lucide="shopping-bag" class="icon-small"></i>
+                  </div>
+                  <div class="user-icon">
+                     <i data-lucide="user" class="icon-small"></i>
+                  </div>
+                   
+               </div>
+            </div>
+            <div class="nav-bottom">
+               <!-- <div class="dropdown-group">
+                  <div class="select-box">Categories <i data-lucide="chevron-down"></i></div>
+                  <div class="select-box">New Product <i data-lucide="chevron-down"></i></div>
+                  </div> -->
+               <div class="pill-tags">
+                  <a href="index.html" class="pill">Men Fashion</a>
+                  <a href="/other pages/html pages/women.html" class="pill">Women Fashion</a>
+               </div>
+               <div class="search-container">
+                  <input  id="main-search" type="text" placeholder="Find your Fashion">
+                  <button onclick="executeSearch()" class="search-btn"><i data-lucide="search"></i></button>
+               </div>
+               <div class="pill-tags">
+                  <a href="/other pages/html pages/men-accessories.html" class="pill">Men Accessories</a>
+                  <a href="" class="pill">Women Accessories</a>
+               </div>
+            </div>
+         </nav>
+      </div>
+      <!-- hero-banner ------------------------------------------------>
+      <div class="hero container">
+         <!-- <div class="hero-section">
+            <div class="hero-image"></div>
+            </div>   -->
+         <div class="hero-slider">
+            <div class="slide active">
+               <img src="assets/kung_fu_panda_Pullovers_homepage_1SDRKPo.avif" alt="Men and Women Collection">
+               <!-- <div class="hero-content">
+                  <img src="" class="hero-logo" alt="Logo">
+                  <h2>NEW SEASON SALE</h2>
+                  <p>UPTO 60% OFF</p>
+                  </div> -->
+            </div>
+            <div class="slide">
+               <img src="assets/Vecna_Home_Page_Banner_9k9vGBR.avif" alt="Trending Wear">
+               <!-- <div class="hero-content">
+                  <img src="your-logo.png" class="hero-logo" alt="Logo">
+                  <h2>EXCLUSIVE COLLECTION</h2>
+                  <p>LIVE NOW</p>
+                  </div>  -->
+            </div>
+            <div class="slide">
+               <img src="assets/Avengers---Captain-America-Jacket-homepage_1.avif" alt="Trending Wear">
+               <!-- <div class="hero-content">
+                  <img src="your-logo.png" class="hero-logo" alt="Logo">
+                  <h2>EXCLUSIVE COLLECTION</h2>
+                  <p>LIVE NOW</p>
+                  </div> -->
+            </div>
+            <div class="slide">
+               <img src="assets/category_XBJWcEI.avif" alt="Trending Wear">
+               <!-- <div class="hero-content">
+                  <img src="your-logo.png" class="hero-logo" alt="Logo">
+                  <h2>EXCLUSIVE COLLECTION</h2>
+                  <p>LIVE NOW</p>
+                  </div> -->
+            </div>
+            <div class="slide">
+               <img src="assets/category_1_ueGr1M0.avif" alt="Trending Wear">
+               <!-- <div class="hero-content">
+                  <img src="your-logo.png" class="hero-logo" alt="Logo">
+                  <h2>EXCLUSIVE COLLECTION</h2>
+                  <p>LIVE NOW</p>
+                  </div> -->
+            </div>
+         </div>
+      </div>
+
+       <!-- new arival ---------------------------------------------------------->
+         <div class="arrival container">
+            <section class="new-arrivals">
+    <h2 class="section-title">NEW ARRIVALS</h2>
+    <div class="slider-container">
+        <div class="slider-track" id="arrival-track">
+            </div>
+        
+        <div class="slider-dots" id="slider-dots"></div>
+    </div>
+</section>
+         </div>
+
+
+
+
+      <!-- trending&deal of the day section----------------------------------- -->
+      <div class="trending container">
+         <section class="trending-section">
+            <h1 class="section-title">Trending Now</h1>
+            <div class="product-grid">
+               <div class="product-card">
+                  <div class="image-container">
+                     <img src="assets/116545460m4.webp" alt="Pink Pearl Slub">
+                  </div>
+                  <div class="product-info">
+                     <div class="product-header">
+                        <p class="product-name">Pink Pearl Slub Textu...</p>
+                        <div class="product-actions">
+                           <!-- <i data-lucide="shopping-bag"></i> -->
+                           <i data-lucide="bookmark"></i>
+                        </div>
+                     </div>
+                     <div class="price-row">
+                        <span class="original-price">₹1,749</span>
+                        <span class="current-price">₹699</span>
+                        <span class="discount">60% OFF</span>
+                     </div>
+                  </div>
+               </div>
+               <div class="product-card">
+                  <div class="image-container">
+                     <img src="assets/1_0bb9a96c-5927-4c40-9889-25fecee119b5.webp" alt="Pearl Cream">
+                  </div>
+                  <div class="product-info">
+                     <div class="product-header">
+                        <p class="product-name">Pearl Cream Soft Shee...</p>
+                        <div class="product-actions">
+                           <!-- <i data-lucide="shopping-bag"></i> -->
+                           <i data-lucide="bookmark"></i>
+                        </div>
+                     </div>
+                     <div class="price-row">
+                        <span class="original-price">₹1,749</span>
+                        <span class="current-price">₹699</span>
+                        <span class="discount">60% OFF</span>
+                     </div>
+                  </div>
+               </div>
+               <div class="product-card">
+                  <div class="image-container">
+                     <img src="assets/Gemini_Generated_Image_kk6wpikk6wpikk6w-green.png" alt="Pearl Cream">
+                  </div>
+                  <div class="product-info">
+                     <div class="product-header">
+                        <p class="product-name">Pearl Cream Soft Shee...</p>
+                        <div class="product-actions">
+                           <!-- <i data-lucide="shopping-bag"></i> -->
+                           <i data-lucide="bookmark"></i>
+                        </div>
+                     </div>
+                     <div class="price-row">
+                        <span class="original-price">₹1,749</span>
+                        <span class="current-price">₹699</span>
+                        <span class="discount">60% OFF</span>
+                     </div>
+                  </div>
+               </div>
+               <div class="product-card">
+                  <div class="image-container">
+                     <img src="assets/116385360m6.webp" alt="Pearl Cream">
+                  </div>
+                  <div class="product-info">
+                     <div class="product-header">
+                        <p class="product-name">Pearl Cream Soft Shee...</p>
+                        <div class="product-actions">
+                           <!-- <i data-lucide="shopping-bag"></i> -->
+                           <i data-lucide="bookmark"></i>
+                        </div>
+                     </div>
+                     <div class="price-row">
+                        <span class="original-price">₹1,749</span>
+                        <span class="current-price">₹699</span>
+                        <span class="discount">60% OFF</span>
+                     </div>
+                  </div>
+               </div>
+               <div class="product-card">
+                  <div class="image-container">
+                     <img src="assets/1_7fc05f41-df46-4d95-a252-2406bb15a5ac-pastal.webp" alt="Pearl Cream">
+                  </div>
+                  <div class="product-info">
+                     <div class="product-header">
+                        <p class="product-name">Pearl Cream Soft Shee...</p>
+                        <div class="product-actions">
+                           <!-- <i data-lucide="shopping-bag"></i> -->
+                           <i data-lucide="bookmark"></i>
+                        </div>
+                     </div>
+                     <div class="price-row">
+                        <span class="original-price">₹1,749</span>
+                        <span class="current-price">₹699</span>
+                        <span class="discount">60% OFF</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </div>
+      <!-- deal-container---------------------------------------------- -->
+      <div class="deal container">
+         <section class="trending-section">
+            <h1 class="section-title">Deal of the day</h1>
+            <div class="product-grid">
+               <div class="product-card">
+                  <div class="image-container">
+                     <img src="assets/Gemini_Generated_Image_ftak34ftak34ftak-blue.png" alt="Pink Pearl Slub">
+                  </div>
+                  <div class="product-info">
+                     <div class="product-header">
+                        <p class="product-name">Pink Pearl Slub Textu...</p>
+                        <div class="product-actions">
+                           <!-- <i data-lucide="shopping-bag"></i> -->
+                           <i data-lucide="bookmark"></i>
+                        </div>
+                     </div>
+                     <div class="price-row">
+                        <span class="original-price">₹1,749</span>
+                        <span class="current-price">₹699</span>
+                        <span class="discount">60% OFF</span>
+                     </div>
+                  </div>
+               </div>
+               <div class="product-card">
+                  <div class="image-container">
+                     <img src="assets/1_0bb9a96c-5927-4c40-9889-25fecee119b5.webp" alt="Pearl Cream">
+                  </div>
+                  <div class="product-info">
+                     <div class="product-header">
+                        <p class="product-name">Pearl Cream Soft Shee...</p>
+                        <div class="product-actions">
+                           <!-- <i data-lucide="shopping-bag"></i> -->
+                           <i data-lucide="bookmark"></i>
+                        </div>
+                     </div>
+                     <div class="price-row">
+                        <span class="original-price">₹1,749</span>
+                        <span class="current-price">₹699</span>
+                        <span class="discount">60% OFF</span>
+                     </div>
+                  </div>
+               </div>
+               <div class="product-card">
+                  <div class="image-container">
+                     <img src="assets/iKIaMmfE_9bf7581d10a54cd2bab94ff9a76c1218.jpg" alt="Pearl Cream">
+                  </div>
+                  <div class="product-info">
+                     <div class="product-header">
+                        <p class="product-name">Pearl Cream Soft Shee...</p>
+                        <div class="product-actions">
+                           <!-- <i data-lucide="shopping-bag"></i> -->
+                           <i data-lucide="bookmark"></i>
+                        </div>
+                     </div>
+                     <div class="price-row">
+                        <span class="original-price">₹1,749</span>
+                        <span class="current-price">₹699</span>
+                        <span class="discount">60% OFF</span>
+                     </div>
+                  </div>
+               </div>
+               <div class="product-card">
+                  <div class="image-container">
+                     <img src="assets/1_7fc05f41-df46-4d95-a252-2406bb15a5ac-pastal.webp" alt="Pearl Cream">
+                  </div>
+                  <div class="product-info">
+                     <div class="product-header">
+                        <p class="product-name">Pearl Cream Soft Shee...</p>
+                        <div class="product-actions">
+                           <!-- <i data-lucide="shopping-bag"></i> -->
+                           <i data-lucide="bookmark"></i>
+                        </div>
+                     </div>
+                     <div class="price-row">
+                        <span class="original-price">₹1,749</span>
+                        <span class="current-price">₹699</span>
+                        <span class="discount">60% OFF</span>
+                     </div>
+                  </div>
+               </div>
+               <div class="product-card">
+                  <div class="image-container">
+                     <img src="assets/fe-model.jpg" alt="Pearl Cream">
+                  </div>
+                  <div class="product-info">
+                     <div class="product-header">
+                        <p class="product-name">Pearl Cream Soft Shee...</p>
+                        <div class="product-actions">
+                           <!-- <i data-lucide="shopping-bag"></i> -->
+                           <i data-lucide="bookmark"></i>
+                        </div>
+                     </div>
+                     <div class="price-row">
+                        <span class="original-price">₹1,749</span>
+                        <span class="current-price">₹699</span>
+                        <span class="discount">60% OFF</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </div>
+      <!-- offer-container----------------------------------------- -->
+      <div class="offer container">
+         <section class="offer-banner-premium">
+            <div class="offers-badge-minimal">Offers</div>
+            <h2 class="offer-title-dark">
+               EXCLUSIVE FASHION OFFERS<br>
+               <span class="sub-text">AWAIT FOR YOU</span>
+            </h2>
+            <a href="#" class="cta-button-dark">
+               CHECK IT NOW
+               <div class="arrow-circle-black">
+                  <i data-lucide="arrow-right"></i>
+               </div>
+            </a>
+         </section>
+         <script src="https://unpkg.com/lucide@latest"></script>
+         <script>lucide.createIcons();</script>
+      </div>
+      <!-- browse-category------------------------------------------------ -->
+      <div class="browse container">
+         <section class="browse-section">
+            <div class="browse-header">
+               <h2 class="section-title">Browse by categories</h2>
+            </div>
+            <div class="category-grid">
+               <div class="category-card">
+                  <img src="/assets/116414028m7.webp" alt="Shoes">
+                  <a href="/other pages/html pages/men-shirt.html" class="category-label">SHIRT</a>
+               </div>
+               <div class="category-card">
+                  <img src="assets/116540669m3.webp" alt="Brash">
+                  <a href="/other pages/html pages/men-tshirt.html" class="category-label">TSHIRT</a>
+               </div>
+               <div class="category-card">
+                  <img src="assets/bbottom waer.webp" alt="Bag">
+                  <a href="/other pages/html pages/men-bottom.html" class="category-label">BOTTOM WEAR</a>
+               </div>
+               <div class="category-card">
+                  <img src="assets/kurta.webp" alt="T-Shirt">
+                  <a href="/other pages/html pages/men-kurta.html" class="category-label">KURTA</a>
+               </div>
+                <div class="category-card">
+                  <img src="assets/allaccessories.png" alt="T-Shirt">
+                  <a href="/other pages/html pages/men-accessories.html" class="category-label">All Accessories</a>
+               </div>
+            </div>
+         </section>
+      </div>
+      <!-- testimonial-section ------------------------------------------->
+      <div class="testimonial container">
+         <section class="testimonial-section">
+            <div class="testimonial-header">
+               <h2 class="section-title">What our Customer say's</h2>
+               <div class="slider-nav">
+                  <button class="nav-btn" id="prevBtn"><i data-lucide="arrow-left"></i></button>
+                  <button class="nav-btn dark" id="nextBtn"><i data-lucide="arrow-right"></i></button>
+               </div>
+            </div>
+            <div class="slider-container">
+               <div class="testimonial-track" id="track">
+                  <div class="testimonial-card">
+                     <div class="user-info">
+                        <img src="assets/profie image.png" alt="Leslie">
+                        <div class="details">
+                           <strong>Leslie Alexander</strong>
+                           <span>Model</span>
+                        </div>
+                     </div>
+                     <p class="quote">"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."</p>
+                     <div class="ratting">
+                        <div class="stars">★★★★★</div>
+                        <div class="date">Review on 19/12/2025</div>
+                     </div>
+                  </div>
+                  <div class="testimonial-card">
+                     <div class="user-info">
+                        <img src="assets/profie image.png" alt="Leslie">
+                        <div class="details">
+                           <strong>Leslie Alexander</strong>
+                           <span>Model</span>
+                        </div>
+                     </div>
+                     <p class="quote">"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."</p>
+                     <div class="ratting">
+                        <div class="stars">★★★★★</div>
+                        <div class="date">Review on 19/12/2025</div>
+                     </div>
+                  </div>
+                  <div class="testimonial-card">
+                     <div class="user-info">
+                        <img src="assets/profie image.png" alt="Leslie">
+                        <div class="details">
+                           <strong>Leslie Alexander</strong>
+                           <span>Model</span>
+                        </div>
+                     </div>
+                     <p class="quote">"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."</p>
+                     <div class="ratting">
+                        <div class="stars">★★★★★</div>
+                        <div class="date">Review on 19/12/2025</div>
+                     </div>
+                  </div>
+                  <div class="testimonial-card">
+                     <div class="user-info">
+                        <img src="assets/profie image.png" alt="Leslie">
+                        <div class="details">
+                           <strong>Leslie Alexander</strong>
+                           <span>Model</span>
+                        </div>
+                     </div>
+                     <p class="quote">"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."</p>
+                     <div class="ratting">
+                        <div class="stars">★★★★★</div>
+                        <div class="date">Review on 19/12/2025</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <script src="https://unpkg.com/lucide@latest"></script>
+      </div>
+      <!-- feature-section ---------------------------------------->
+      <div class="feture container">
+         <section class="features-section">
+            <div class="feature-item">
+               <div class="feature-icon">
+                  <i data-lucide="package"></i>
+               </div>
+               <div class="feature-content">
+                  <h3>Free Shipping</h3>
+                  <p>Free shipping for order above $150</p>
+               </div>
+            </div>
+            <div class="feature-item">
+               <div class="feature-icon">
+                  <i data-lucide="circle-dollar-sign"></i>
+               </div>
+               <div class="feature-content">
+                  <h3>Money Guarantee</h3>
+                  <p>Within 30 days for an exchange</p>
+               </div>
+            </div>
+            <div class="feature-item">
+               <div class="feature-icon">
+                  <i data-lucide="headset"></i>
+               </div>
+               <div class="feature-content">
+                  <h3>Online Support</h3>
+                  <p>24 hours a day, 7 days a week</p>
+               </div>
+            </div>
+            <div class="feature-item">
+               <div class="feature-icon">
+                  <i data-lucide="credit-card"></i>
+               </div>
+               <div class="feature-content">
+                  <h3>Flexible Payment</h3>
+                  <p>Pay with multiple credit cards</p>
+               </div>
+            </div>
+         </section>
+         <script src="https://unpkg.com/lucide@latest"></script>
+         <script>
+            lucide.createIcons();
+         </script>
+      </div>
+      <!-- footer-secion ---------------------------------------------------->
+      <div class="footer">
+         <div class="footer-section">
+            <div class="div title">M&w <span>wear</span></div>
+            <div class="links">
+               <a href="">support Center</a>
+               <a href="">Invoice</a>
+               <a href="">Contact</a>
+               <a href="">Career</a>
+            </div>
+         </div>
+      </div>
+      <!-- side-menu ------------------------------------------------------------>
+      <div class="menu-overlay" id="menuOverlay"></div>
+      <nav class="side-menu" id="sideMenu">
+         <div class="menu-header">
+            <h3>CATEGORIES</h3>
+            <button class="close-btn" id="closeMenu">&times;</button>
+         </div>
+         <ul class="menu-list">
+            <li class="menu-item has-submenu">
+               <a href="#">MEN <i data-lucide="chevron-right"></i></a>
+               <div class="submenu">
+                  <a href="other pages/html pages/men-shirt.html">Shirt</a>
+                  <a href="other pages/html pages/men-tshirt.html">T-Shirt</a>
+                  <a href="other pages/html pages/men-kurta.html">Winter wear</a>
+                  <a href="other pages/html pages/men-bottom.html">Bottom Wear</a>
+               </div>
+            </li>
+            <li class="menu-item has-submenu">
+               <a href="#">WOMEN <i data-lucide="chevron-right"></i></a>
+               <div class="submenu">
+                  <a href="other pages/html pages/men-shirt.html">Dresses</a>
+                  <a href="other pages/html pages/women-tops.html">Tops & Tees</a>
+                  <a href="other pages/html pages/women-kurti.html">Kurti</a>
+                  <a href="other pages/html pages/women-bottwear.html">Bottom Wear</a>
+               </div>
+            </li>
+            <li class="menu-item"><a href="other pages/html pages/newarrival.html">New Arrival</a></li>
+            <li class="menu-item has-submenu">
+               <a href="#">ACCESSORIES <i data-lucide="chevron-right"></i></a>
+               <div class="submenu">
+                  <a href="other pages/html pages/men-accessories.html">Men</a>
+                  <a href="other pages/html pages/men-tshirt.html">Women</a>
+               </div>
+            </li>
+            <li class="menu-item"><a href="index.html">Home</a></li>
+         </ul>
+      </nav>
+      <!-- login-container ----------------------------------------->
+      <div class="login-modal-overlay" id="loginModal">
+         <div class="login-container">
+            <div class="login-image">
+               <img src="assets/pexels-rfera-432059.jpg" alt="Fashion Models">
+            </div>
+            <div class="login-form">
+               <button class="close-modal" id="closeLogin">&times;</button>
+               <h2>LOGIN OR SIGNUP</h2>
+               <p>Login to  Unlock EXCLUSIVE discount,coupen & more </p>
+               <div class="input-group">
+                  <span>+91 | </span>
+                  <input type="tel" placeholder="Enter your mobile number" maxlength="10" required>
+               </div>
+               <button type="submit" class="otp-btn">SEND OTP</button>
+            </div>
+         </div>
+      </div>
+      <script>
+         // Initialize icons
+         lucide.createIcons();
+      </script>
+   </body>
+</html>

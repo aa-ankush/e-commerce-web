@@ -1,0 +1,194 @@
+.product-detail-container {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* Left side wider for images */
+    gap: 50px;
+    align-items: start;
+}
+
+/* Left Side: Image Gallery */
+.detail-images,.related-images img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    height: 100%;
+}
+
+
+.detail-images img {
+    width: 100%;
+}
+
+/* Right Side: Product Info (Sticky) */
+.detail-info {
+    position: sticky;
+    top: 100px; /* Keeps info visible while scrolling through images */
+}
+
+.detail-info h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 10px 0;
+    color: #111;
+}
+
+.detail-info .price {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 5px;
+}
+
+.tax-info {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+/* Size Selector */
+.size-selector {
+    margin-bottom: 30px;
+}
+
+.size-selector p {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.size-selector a {
+    color: #00bcd4; /* Cyan color for size chart link */
+    text-decoration: underline;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.size-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.size-buttons button {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ddd;
+    background: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.size-buttons button:hover {
+    border-color: #000;
+    background: #f9f9f9;
+}
+
+/* Action Buttons */
+.btn-add-cart {
+    width: 50%;
+    padding: 18px;
+    background: #ff3e1d; /* Vibrant orange-red like the screenshot */
+    color: #fff;
+    border: none;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 40px;
+        margin-right: 16px;
+}
+
+.btn-add-cart:hover {
+    background: #e33518;
+}
+
+.wishlist-btn {
+    width: 40%;
+    padding: 18px;
+    background: #00bcd4; /* Vibrant orange-red like the screenshot */
+    color: #fff;
+    border: none;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 40px;
+}
+
+.wishlist-btn:hover {
+    background:  #03aec4;
+}
+
+/* Description Section */
+.product-description h4 {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.product-description p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+
+/* suggeston */
+.end-message {
+    text-align: center;
+    padding: 60px 0;
+    opacity: 0; /* Hidden by default */
+    transform: translateY(20px);
+    transition: all 0.8s ease-out;
+}
+
+.end-message p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.end-message span {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Class added by JS when scrolled to the bottom */
+.end-message.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.product-image {
+    position: relative;
+}
+
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+    .detail-info {
+        position: static;
+    }
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+h1 {
+    margin-bottom: 24px;
+}

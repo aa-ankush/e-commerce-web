@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product detail</title>
+    <script src="../js pages/nav.js"></script>
+    <link rel="stylesheet" href="../css pages/nav.css" />
+    <link rel="stylesheet" href="../css pages/product-detail.css" />
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <main class="product-detail-container">
+      <div class="detail-grid" id="detail-content">
+        <p>Loading product details...</p>
+      </div>
+    </main>
+
+    <section class="related-products container">
+      <h1 class="section-title">You May Also Like</h1>
+      <div class="related-grid" id="related-grid"></div>
+    </section>
+
+    <div id="end-of-list" class="end-message">
+      <p>More items on the way...</p>
+      <span>Curating the best for you.</span>
+    </div>
+
+    <div id="footer"></div>
+
+    <script>
+      // Initialize icons
+      lucide.createIcons();
+    </script>
+    <script src="../js pages/productdetail.js"></script>
+    <script src="../js pages/cart-logic.js"></script>
+  </body>
+</html>

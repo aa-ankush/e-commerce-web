@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../js pages/nav.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../css pages/nav.css">
+    <link rel="stylesheet" href="../css pages/shirt.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+        <h1>Your Shopping Bag</h1>
+        <div id="cart-items-container">
+            </div>
+        
+        <div class="cart-summary">
+            <h3>Order Summary</h3>
+            <p>Total Items: <span id="total-qty">0</span></p>
+            <p>Total Price: <strong>₹<span id="total-price">0</span></strong></p>
+            <button class="btn-primary" onclick="proceedToCheckout()">Checkout</button>
+        </div>
+    </main>
+
+    
+    <script src="../js pages/cart-logic.js"></script>
+    <script src="../js pages/cart-display.js"></script>
+</body>
+</html>

@@ -138,6 +138,7 @@ a {
     text-align: center;
     background: #fff;
     transition: transform 0.3s ease;
+    position: relative;
 }
 
 .product-image img {

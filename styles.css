@@ -16,7 +16,7 @@ html {
 body {
   min-height: 100vh;
   color: #2F2F2F;
-  background-color: rgb(248, 247, 244);
+  background-color: #f8f7f4;
   padding-inline: 1rem;
   font-family: "poppins", Arial, Helvetica, sans-serif;
 }
@@ -1301,8 +1301,8 @@ a {
     overflow: hidden;
 }
 
-/* responsiveness------------------------------------------------- */
-/* Ensure the anchor tag is on the very top layer */
+
+
 .hero-slider .slide a {
     display: block !important;
     position: relative;
@@ -1311,7 +1311,154 @@ a {
     height: 100%;
 }
 
-/* Make sure the image doesn't block the click */
+
 .hero-slider img {
     pointer-events: none;
+}
+
+/* responsiveness------------------------------------------------- */
+
+/* --- TABLET VIEW (768px and below) --- */
+@media screen and (max-width: 768px) {
+    /* Navbar: Stack the search and pills vertically */
+    .nav-bottom {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .search-container {
+        width: 100%; /* Search bar takes full width */
+    }
+
+    /* Grids: Show 2 items per row instead of 4 */
+    .product-grid, .category-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px;
+    }
+
+    /* Hero Slider: Adjust height for smaller screens */
+    .hero-slider {
+        height: 350px;
+    }
+}
+
+/* --- MOBILE VIEW (480px and below) --- */
+@media screen and (max-width: 480px) {
+    /* Logo: Reduce size slightly */
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    /* Grids: Most items should stack in 1 or 2 columns */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr !important; /* Categories stack vertically */
+    }
+
+    /* Feature Section: Stack shipping/support items */
+    .features-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Hero Section: Make images fit better */
+    .hero-slider {
+        height: 250px;
+    }
+
+    /* Footer: Center links and stack them */
+    .footer-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Reduce global container margins */
+    .container {
+        padding: 0 10px !important; /* Reduced from your desktop padding */
+        margin-top: 20px !important; /* Tighter vertical spacing between sections */
+    }
+
+    /* Navbar padding reduction */
+    /* .nav-container {
+        padding: 5px 10px !important;
+    } */
+
+    .nav-top {
+        padding: 10px 0 !important;
+        gap: 10px !important;
+        margin-bottom: 0px;
+    }
+
+    /* Reduce gaps in your product and category grids */
+    .product-grid, .category-grid {
+        gap: 8px !important;
+    }
+
+    /* Tighter spacing for section titles */
+    .section-title {
+        margin-bottom: 15px !important;
+        font-size: 1.4rem !important;
+    }
+
+    /* Adjust the hero section to bleed closer to the edges */
+    .hero.container {
+        padding: 0 !important; /* Full-width hero looks better on mobile */
+    }
+
+    .pill-tags {
+        display: none;
+    }
+
+    .navbar {
+        padding: 0px;
+    }
+
+    .slider-track a {
+        width: 100%;
+    }
+
+    .nav-right{
+        gap: 0px
+    } ;
+
+
+    #arrival-track {
+        display: flex !important;
+        gap: 0 !important; /* Remove gaps for a clean full-width look */
+    }
+
+    /* 3. Each product card now takes exactly one full screen width */
+    #arrival-track .slide-item {
+        flex: 0 0 100% !important; 
+        max-width: 100% !important;
+        padding: 0 10px; /* Small inner padding so it doesn't touch the glass */
+        box-sizing: border-box;
+    }
+
+    /* 4. Ensure the image scales correctly */
+    #arrival-track .product-card img {
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 0; /* Optional: square edges look better for full-width */
+    }
+
+    .testimonial-track .testimonial-card {
+         flex: 0 0 100% !important; 
+        max-width: 100% !important;
+        padding: 0 10px; /* Small inner padding so it doesn't touch the glass */
+        box-sizing: border-box;
+    }
 }

@@ -19,10 +19,10 @@ async function renderWishlist() {
     grid.innerHTML = myItems
       .map(
         (item) => `
-    <div class="wishlist-item" onclick="window.location.href='../html pages/product-detail.html?id=${item.id}'">
-        <div class="product-image">
+    <div class="wishlist-item">
+        <div class="product-image" onclick="window.location.href='../html pages/product-detail.html?id=${item.id}'">
             <img src="../../assets/images/men/${item.subcategory}s/${item.img}" alt="${item.name}">
-            <button class="btn-remove" onclick="removeFromWishlist(${item.id})"><i data-lucide="x"></i>    </button>
+           
         </div>
         <div class="product-info">
             <h3 class="product-title">${item.name}</h3>
@@ -37,6 +37,7 @@ async function renderWishlist() {
                 </button>
             </div>
         </div>
+         <button class="btn-remove" onclick="removeFromWishlist(${item.id})"><i data-lucide="x"></i>    </button>
     </div>
 `,
       )

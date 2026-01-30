@@ -1302,3 +1302,16 @@ a {
 }
 
 /* responsiveness------------------------------------------------- */
+/* Ensure the anchor tag is on the very top layer */
+.hero-slider .slide a {
+    display: block !important;
+    position: relative;
+    z-index: 999; 
+    width: 100%;
+    height: 100%;
+}
+
+/* Make sure the image doesn't block the click */
+.hero-slider img {
+    pointer-events: none;
+}

@@ -81,35 +81,29 @@ function renderProducts(data) {
 
 function sortProducts() {
     const sortBy = document.getElementById('sort-options').value;
-    
-    // 1. Correctly get the title from the first element in the class collection
-    const titleElement = document.getElementsByClassName('category-title')[0];
-    
-    if (!titleElement) {
-        console.error("Could not find category-title element");
-        return;
+    const titleElement = document.getElementById('category-title'); // Use ID for better accuracy
+
+    if (!titleElement) return;
+
+    // Convert "SHIRTS" to "shirt" correctly
+    let currentSub = titleElement.innerText.toLowerCase().trim();
+    if (currentSub.endsWith('s')) {
+        currentSub = currentSub.slice(0, -1); // Removes only the last character
     }
 
-    // 2. Get the subcategory (make sure this matches your JSON subcategory exactly)
-    // We remove the 'S' at the end if your title is "SHIRTS" but JSON is "shirt"
-    const currentSub = titleElement.innerText.toLowerCase().replace('s', '').trim();
-    
-    // 3. Filter the master data
+    // Filter the master data using the cleaned string
     let dataToSort = masterData.filter(item => item.subcategory === currentSub);
 
-    // 4. Perform the sort
+    // Perform the sort
     if (sortBy === 'price-low') {
         dataToSort.sort((a, b) => a.price - b.price);
     } else if (sortBy === 'price-high') {
         dataToSort.sort((a, b) => b.price - a.price);
     } else if (sortBy === 'popularity') {
         dataToSort.sort((a, b) => b.popularity - a.popularity);
-    } else if (sortBy === 'newest') {
-        dataToSort.sort((a, b) => b.date - a.date);
     }
 
-    // 5. Send the sorted, filtered data back to the grid
-    renderProducts(dataToSort);
+    renderProducts(dataToSort); // Redraw the grid with sorted items
 }
 
 

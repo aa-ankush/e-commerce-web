@@ -1461,4 +1461,39 @@ a {
         padding: 0 10px; /* Small inner padding so it doesn't touch the glass */
         box-sizing: border-box;
     }
+
+    @media screen and (max-width: 480px) {
+    /* Change the container from flex to grid */
+    .features-section {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* Two equal columns */
+        gap: 15px !important; /* Spacing between the 4 items */
+        padding: 15px 10px !important;
+    }
+
+    /* Adjust the individual items to fit the smaller boxes */
+    .feature-item {
+        flex-direction: column !important; /* Stack icon on top of text */
+        text-align: center !important;
+        padding: 10px !important;
+        background: #f9f9f9; /* Optional: light background to define the boxes */
+        border-radius: 8px;
+    }
+
+    /* Shrink the icons and text slightly for mobile */
+    .feature-icon i {
+        width: 24px !important;
+        height: 24px !important;
+    }
+
+    .feature-content h3 {
+        font-size: 0.9rem !important; /* Smaller titles to prevent wrapping */
+        margin-bottom: 5px !important;
+    }
+
+    .feature-content p {
+        font-size: 0.75rem !important; /* Smaller description */
+        line-height: 1.2 !important;
+    }
+}
 }

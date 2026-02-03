@@ -14,17 +14,17 @@ async function loadProductDetail() {
         if (product) {
             renderDetail(product, gender);
             // NEW: Load related products based on subcategory
-            loadRelatedProducts(products, product,gender);
+            loadRelatedProducts(products, product, gender);
         } else {
             document.getElementById('detail-content').innerHTML = "<h2>Product Not Found</h2>";
         }
     } catch (error) {
         console.error("Error loading product details:", error);
     }
-   
+
 }
 
-function renderDetail(product,gender) {
+function renderDetail(product, gender) {
     const container = document.getElementById('detail-content');
     const dynamicPath = `../../assets/images/${gender}/${product.subcategory}s/${product.img}`;
 
@@ -65,14 +65,15 @@ function renderDetail(product,gender) {
 loadProductDetail();
 
 
-function loadRelatedProducts(allProducts, currentProduct,gender) {
+
+function loadRelatedProducts(allProducts, currentProduct, gender) {
     const relatedGrid = document.getElementById('related-grid');
-    
+
 
     // Filter for products in the same subcategory, excluding current ID
     const related = allProducts
         .filter(p => p.subcategory === currentProduct.subcategory && p.id !== currentProduct.id)
-       // Show only the first 4 results
+    // Show only the first 4 results
 
     relatedGrid.innerHTML = related.map(item => `
         <div class="product-card" onclick="window.location.href='product-detail.html?id=${item.id}&gender=${gender}'">

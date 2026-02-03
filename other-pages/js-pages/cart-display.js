@@ -1,7 +1,7 @@
 async function renderCart() {
     const cartIds = JSON.parse(localStorage.getItem('mw_cart')) || [];
     const container = document.getElementById('cart-items-container');
-    
+
     const [menRes, womenRes] = await Promise.all([
         fetch('../../men-products.json'),
         fetch('../../women-products.json')
@@ -59,7 +59,7 @@ async function renderCart() {
         `;
     }).join('')}`;
 
-    
+
 
     document.getElementById('total-price').innerText = totalPrice;
     document.getElementById('total-qty').innerText = cartProducts.length;

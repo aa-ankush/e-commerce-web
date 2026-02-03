@@ -2,7 +2,7 @@ async function loadSearchResults() {
     // 1. Get the query 'q' from the URL parameters
     const params = new URLSearchParams(window.location.search);
     const query = params.get('q');
-    
+
     if (!query) return;
 
     // Update the title to show what the user searched for
@@ -21,11 +21,11 @@ async function loadSearchResults() {
 
     // 4. Render the filtered items
     const grid = document.getElementById('search-results-grid');
-    
-     grid.innerHTML =filteredResults.map(product => {
+
+    grid.innerHTML = filteredResults.map(product => {
         // Dynamically build the path: e.g., assets/images/men/shirts/1.jpg
         const dynamicPath = `../../assets/images/men/${product.subcategory}s/${product.img}`;
-        
+
 
         return `
             <a href="product-detail.html?id=${product.id}" class="product-card">
@@ -43,17 +43,17 @@ async function loadSearchResults() {
             </a>
         `;
     }).join('');
-    
+
     // Re-initialize any icons if using Lucide
     if (window.lucide) lucide.createIcons();
 }
 
 document.addEventListener('DOMContentLoaded', loadSearchResults);
 
-    // wishlist--------------------------------
-    function handleWishlistClick(id, button) {
+// wishlist--------------------------------
+function handleWishlistClick(id, button) {
     let wishlist = JSON.parse(localStorage.getItem('mw_wishlist')) || [];
-    
+
     // If the ID is already there, remove it (unlike). If not, add it (like).
     if (wishlist.includes(id)) {
         wishlist = wishlist.filter(itemId => itemId !== id);
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', loadSearchResults);
 
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('main-search');
-    
+
     if (searchInput) {
         searchInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {

@@ -36,7 +36,7 @@ function loadSiteComponents() {
                     <button class="search-btn" onclick="executeSearch()"><i data-lucide="search"></i></button>
                 </div>
                 <div class="pill-tags">
-                    <a href="../html pages/men-accessories.html" class="pill">Men Accessories</a>
+                    <a href="../html-pages/men-accessories.html" class="pill">Men Accessories</a>
                     <a href="accessories.html" class="pill">Women Accessories</a>
                 </div>
             </div>
@@ -117,10 +117,10 @@ function initInteractions() {
     const closeMenu = document.getElementById('closeMenu');
 
     menuBtn.onclick = () => { sideMenu.classList.add('active'); menuOverlay.classList.add('active'); };
-    menuBtn.addEventListener('click', ()=> {
-    console.log("menu btn wass clicked");
-    
-})
+    menuBtn.addEventListener('click', () => {
+        console.log("menu btn wass clicked");
+
+    })
     closeMenu.onclick = () => { sideMenu.classList.remove('active'); menuOverlay.classList.remove('active'); };
     menuOverlay.onclick = () => { sideMenu.classList.remove('active'); menuOverlay.classList.remove('active'); };
 
@@ -157,7 +157,6 @@ document.addEventListener('DOMContentLoaded', loadFooter);
 
 
 
-
 // Add this function to update the red number on the heart
 function updateWishlistBadge() {
     const wishlist = JSON.parse(localStorage.getItem('mw_wishlist')) || [];
@@ -175,7 +174,6 @@ document.addEventListener('DOMContentLoaded', updateWishlistBadge)
 
 
 
-
 // search logic------------------------------------------
 
 function executeSearch() {
@@ -184,12 +182,11 @@ function executeSearch() {
 
     if (query) {
         // This line is responsible for the "Jump" to the new page
-        window.location.href = `../html pages/search-result.html?q=${encodeURIComponent(query)}`;
+        window.location.href = `../html-pages/search-result.html?q=${encodeURIComponent(query)}`;
     }
     console.log("you click the button");
 
 }
-
 
 const searchInput = document.getElementById('main-search');
 
@@ -207,8 +204,7 @@ searchInput.addEventListener('keydown', function (event) {
 let cartIcon = document.querySelector(".cart-icon");
 cartIcon.addEventListener("click", () => {
     console.log("cart icon was clicked");
-    window.location.href = `/other pages/html pages/cart.html`;
+    window.location.href = `/other-pages/html-pages/cart.html`;
 
 })
-
 

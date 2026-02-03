@@ -5,10 +5,10 @@ let currentSlide = 0;
 function nextSlide() {
     // Remove 'active' class from current slide
     slides[currentSlide].classList.remove('active');
-    
+
     // Move to next slide, or back to start if at the end
     currentSlide = (currentSlide + 1) % slides.length;
-    
+
     // Add 'active' class to the new slide
     slides[currentSlide].classList.add('active');
 }
@@ -19,7 +19,7 @@ setInterval(nextSlide, 5000);
 
 
 // side-menu---------------------------------------------
-const menuBtn = document.querySelector('.nav-left'); 
+const menuBtn = document.querySelector('.nav-left');
 const sideMenu = document.getElementById('sideMenu');
 const closeBtn = document.getElementById('closeMenu');
 const overlay = document.getElementById('menuOverlay');
@@ -29,7 +29,7 @@ menuBtn.addEventListener('click', () => {
     sideMenu.classList.add('active');
     overlay.classList.add('active');
     console.log("click");
-    
+
 });
 
 // Function to Close Menu
@@ -81,13 +81,13 @@ let index = 0;
 
 function updateSlider() {
     // Calculate width of one card + gap
-    const cardWidth = cards[0].offsetWidth + 25; 
+    const cardWidth = cards[0].offsetWidth + 25;
     track.style.transform = `translateX(-${index * cardWidth}px)`;
 }
 
 nextBtn.addEventListener('click', () => {
     // Prevent sliding past the last available view
-    if (index < cards.length - 3) { 
+    if (index < cards.length - 3) {
         index++;
         updateSlider();
     }
@@ -113,14 +113,14 @@ async function initArrivalSlider() {
 
     const response = await fetch(`${gender}-products.json`);
     const products = await response.json();
-    
+
     // Get the latest 6 products (sorted by date)
     const newArrivals = products.sort((a, b) => b.date - a.date).slice(0, 10);
-    
+
     const track = document.getElementById('arrival-track');
-    
+
     track.innerHTML = newArrivals.map(item => `
-        <a href="/other pages/html pages/product-detail.html?id=${item.id}&gender=${gender}" class="slide-item">
+    <a href="other-pages/html-pages/product-detail.html?id=${item.id}&gender=${gender}" class="slide-item">
             <img src="assets/images/${gender}/${item.subcategory}s/${item.img}" alt="${item.name}">
             <div class="slide-content">
                 <h3>${item.subcategory}<br><span>${item.cat}<span/></h3>
@@ -135,14 +135,14 @@ async function initArrivalSlider() {
 function autoSlide() {
     const track = document.getElementById('arrival-track');
     const totalSlides = document.querySelectorAll('.slide-item').length;
-    
+
     // Move by 1 slide width at a time
     currentSlideIndex++;
-    
+
     if (currentSlideIndex > totalSlides - 3) {
         currentSlideIndex = 0; // Reset to beginning
     }
-    
+
     const movePercentage = currentSlideIndex * (100 / 3);
     track.style.transform = `translateX(-${movePercentage}%)`;
 }
@@ -158,10 +158,10 @@ function executeSearch() {
 
     if (query) {
         // This line is responsible for the "Jump" to the new page
-        window.location.href = `/other pages/html pages/search-result.html?q=${encodeURIComponent(query)}`;
+    window.location.href = `other-pages/html-pages/search-result.html?q=${encodeURIComponent(query)}`;
     }
     console.log("you click the button");
-    
+
 }
 
 
@@ -181,7 +181,7 @@ searchInput.addEventListener('keydown', function (event) {
 let cartIcon = document.querySelector(".cart-icon");
 cartIcon.addEventListener("click", () => {
     console.log("cart icon was clicked");
-            window.location.href = `/other pages/html pages/cart.html`;
+    window.location.href = `other-pages/html-pages/cart.html`;
 
 })
 
@@ -200,7 +200,7 @@ async function loadHomeSections() {
 
         // 1. Logic for Trending Now (Items with high popularity)
         const trendingItems = products.filter(p => p.popularity >= 90).slice(0, 10);
-        renderHomeGrid('trending-grid', trendingItems,gender);
+        renderHomeGrid('trending-grid', trendingItems, gender);
 
         // 2. Logic for Deal of the Day (Specific IDs or a random selection)
         const dealItems = products.filter(p => p.id >= 301 && p.id <= 700).slice(0, 10);
@@ -212,12 +212,12 @@ async function loadHomeSections() {
 }
 
 // Reusable render function to keep your HTML clean
-function renderHomeGrid(containerId, items,gender) {
+function renderHomeGrid(containerId, items, gender) {
     const grid = document.getElementById(containerId);
     if (!grid) return;
 
     grid.innerHTML = items.map(item => `
-        <div class="product-card" onclick="window.location.href='/other pages/html pages/product-detail.html?id=${item.id}&gender=${gender}'">
+    <div class="product-card" onclick="window.location.href='other-pages/html-pages/product-detail.html?id=${item.id}&gender=${gender}'">
             <div class="image-container">
                 <img src="assets/images/${gender}/${item.subcategory}s/${item.img}" alt="${item.name}">
                  <button type="button" class="wishlist-btn"
@@ -240,7 +240,7 @@ function renderHomeGrid(containerId, items,gender) {
             </div>
         </div>
     `).join('');
-    
+
     // Refresh icons
     lucide.createIcons();
 }

@@ -25,7 +25,7 @@ function renderProducts(data, gender) {
     grid.innerHTML = data.map(product => {
         // Dynamically build the path: e.g., assets/images/men/shirts/1.jpg
         const dynamicPath = `../../assets/images/${gender}/${product.subcategory}s/${product.img}`;
-        
+
 
         return `
             <a href="product-detail.html?id=${product.id}&gender=${gender}" class="product-card">
@@ -43,23 +43,23 @@ function renderProducts(data, gender) {
             </a>
         `;
     }).join('');
-    
+
     lucide.createIcons();
     document.getElementById('item-count').innerText = data.length;
 
-    
-    
+
+
 }
 
 // function sortProducts() {
 //     const sortBy = document.getElementById('sort-options').value;
-    
+
 //     // Get the current subcategory being viewed (we can store this in a variable)
 //      const currentSub = document.getElementsByClassName('category-title').innerText.toLowerCase();
-    
+
 //     // Start with only the items belonging to this category
 //      let dataToSort = masterData.filter(item => item.subcategory === currentSub);
-    
+
 
 //     if (sortBy === 'price-low') {
 //         dataToSort.sort((a, b) => a.price - b.price);
@@ -71,7 +71,7 @@ function renderProducts(data, gender) {
 //          data.sort((a, b) => b.popularity - a.popularity);
 //     }
 
-    
+
 //     renderProducts(dataToSort);
 // }
 
@@ -107,11 +107,10 @@ function sortProducts() {
 
 
 
-
-    // wishlist--------------------------------
-    function handleWishlistClick(id, button) {
+// wishlist--------------------------------
+function handleWishlistClick(id, button) {
     let wishlist = JSON.parse(localStorage.getItem('mw_wishlist')) || [];
-    
+
     // If the ID is already there, remove it (unlike). If not, add it (like).
     if (wishlist.includes(id)) {
         wishlist = wishlist.filter(itemId => itemId !== id);
@@ -139,7 +138,7 @@ function initScrollObserver() {
             if (entry.isIntersecting) {
                 // If the user sees the bottom, add the 'visible' class
                 endMessage.classList.add('visible');
-            }else {
+            } else {
                 endMessage.classList.remove('visible');
             }
         });

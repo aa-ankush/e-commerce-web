@@ -7,10 +7,10 @@ function addToCart(productId) {
     if (!cart.includes(productId)) {
         cart.push(productId);
         localStorage.setItem('mw_cart', JSON.stringify(cart));
-        
+
         // 3. Update the navbar count immediately
         updateCartBadge();
-        
+
         // 4. Visual feedback
         alert("Item added to bag!");
     } else {

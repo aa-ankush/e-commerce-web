@@ -1,0 +1,412 @@
+/* css styling for products pages ------------------------------------------------------- */
+.product-page-container {
+  max-width: 1400px;
+  margin: 20px auto;
+  padding: 0 20px;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.breadcrumb {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.header-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+.header-main h1 {
+  font-size: 18px;
+  color: #333;
+}
+
+/* Sorting Dropdown Styling */
+#sort-options {
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Grid Layout */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.product-card {
+  position: relative;
+  transition: 0.3s;
+  padding: 1rem;
+}
+
+.image-wrapper {
+  position: relative;
+  background: #f8f8f8;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Badge & Heart Icons */
+.fit-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.info-area {
+  padding: 15px 0;
+}
+.info-area h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.info-area p {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+.price {
+  font-weight: 700;
+  color: #111;
+  font-size: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: #2f2f2f;
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.wishlist-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 8px;
+  background-color: #cccc;
+  color: white;
+}
+
+.wishlist-btn:hover {
+  transform: scale(1.1);
+}
+
+/* When the heart is active/saved */
+.wishlist-btn.active {
+  background: #00bcd4; /* Red background */
+}
+
+.wishlist-btn.active i {
+  color: white; /* White heart */
+  fill: white; /* Filled heart */
+}
+
+.heart-icon {
+  width: 18px;
+  color: #333;
+}
+
+/* styling for wishlist page---------------------------------------------------------------------------------------------- */
+/* Wishlist Grid Layout--------------------------------------------------------------------------------------------------- */
+#wishlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 20px 0;
+}
+
+.wishlist-item {
+  text-align: center;
+  background: #fff;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.product-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.product-info {
+  padding: 15px 5px;
+}
+
+.product-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  letter-spacing: 0.5px;
+}
+
+.product-size {
+  font-size: 0.75rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.price-box {
+  margin-bottom: 15px;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 0.8rem;
+  margin-right: 8px;
+}
+
+.discount-price {
+  font-weight: bold;
+  color: #000;
+}
+
+/* Side-by-Side Buttons */
+.action-buttons {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.btn-remove,
+.btn-add-cart {
+  padding: 8px 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-remove {
+  background-color: #00000081;
+  color: #fff;
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  z-index: 1000;
+}
+
+.btn-add-cart {
+  background-color: #000;
+  color: #fff;
+  flex-grow: 1; /* Makes the Add to Cart button slightly wider */
+  justify-content: center;
+}
+
+.btn-add-cart:hover,
+.btn-remove:hover {
+  opacity: 0.8;
+}
+
+/* Style for "Out of Stock" if needed */
+.btn-out-stock {
+  background-color: #666;
+  color: #fff;
+  cursor: not-allowed;
+  flex-grow: 1;
+}
+
+/* styling for cart page ----------------------------------------------------------------------------------*/
+/* #cart-items-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.cart-item {
+    text-align: center;
+    background: #fff;
+    transition: transform 0.3s ease;
+}
+
+.cart-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.cart-item-details {
+     padding: 15px 5px;
+     font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+} */
+
+/* .cart-item-details button {
+     padding: 8px 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    ;
+} */
+
+/* suggeston */
+.end-message {
+  text-align: center;
+  padding: 60px 0;
+  opacity: 0; /* Hidden by default */
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.end-message p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.end-message span {
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Class added by JS when scrolled to the bottom */
+.end-message.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.product-image {
+  position: relative;
+}
+
+/* cart-detail----------------------------------------------------------------- */
+
+/* Container for the whole cart */
+#cart-items-container {
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+/* Header row styling */
+.cart-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Individual item row */
+.cart-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  align-items: center;
+  padding: 30px 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* Product column with image and text */
+.product-col {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.product-col img {
+  width: 120px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.remove-link {
+  background: none;
+  border: none;
+  color: #888;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 10px;
+}
+
+/* Quantity selector styling */
+.qty-selector {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  width: fit-content;
+  padding: 5px;
+}
+
+.qty-selector button {
+  background: none;
+  border: none;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.qty-selector span {
+  padding: 0 15px;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+}
+
+/* Alignment for price/total */
+.price-col,
+.total-col {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+h1 {
+  font-weight: 600;
+  text-align: center;
+}

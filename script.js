@@ -158,7 +158,7 @@ function executeSearch() {
 
     if (query) {
         // This line is responsible for the "Jump" to the new page
-    window.location.href = `other-pages/html-pages/search-result.html?q=${encodeURIComponent(query)}`;
+        window.location.href = `other-pages/html-pages/search-result.html?q=${encodeURIComponent(query)}`;
     }
     console.log("you click the button");
 

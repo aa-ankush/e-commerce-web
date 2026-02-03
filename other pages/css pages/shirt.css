@@ -233,7 +233,7 @@ a {
 
 
 /* styling for cart page ----------------------------------------------------------------------------------*/
-#cart-items-container {
+/* #cart-items-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
@@ -263,9 +263,9 @@ a {
     flex-direction: column;
     align-items: center;
     gap: 12px;
-}
+} */
 
-.cart-item-details button {
+/* .cart-item-details button {
      padding: 8px 12px;
     font-size: 0.75rem;
     font-weight: bold;
@@ -276,7 +276,7 @@ a {
     align-items: center;
     gap: 5px;
     ;
-}
+} */
 
 
 
@@ -316,3 +316,89 @@ a {
     position: relative;
 }
 
+/* cart-detail----------------------------------------------------------------- */
+
+/* Container for the whole cart */
+#cart-items-container {
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+/* Header row styling */
+.cart-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Individual item row */
+.cart-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    align-items: center;
+    padding: 30px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* Product column with image and text */
+.product-col {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.product-col img {
+    width: 120px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.remove-link {
+    background: none;
+    border: none;
+    color: #888;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 10px;
+}
+
+/* Quantity selector styling */
+.qty-selector {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    width: fit-content;
+    padding: 5px;
+}
+
+.qty-selector button {
+    background: none;
+    border: none;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.qty-selector span {
+    padding: 0 15px;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+}
+
+/* Alignment for price/total */
+.price-col, .total-col {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+h1 {
+    font-weight: 600;
+    text-align: center;
+}
+
+.cart-summary {
+    margin: 20px auto;
+}

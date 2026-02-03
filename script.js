@@ -108,17 +108,20 @@ window.addEventListener('resize', updateSlider);
 let currentSlideIndex = 0;
 
 async function initArrivalSlider() {
-    const response = await fetch('men-products.json');
+    const container = document.querySelector('.arrival.container');
+    const gender = container ? container.getAttribute('data-gender') : 'men';
+
+    const response = await fetch(`${gender}-products.json`);
     const products = await response.json();
     
     // Get the latest 6 products (sorted by date)
-    const newArrivals = products.sort((a, b) => b.date - a.date).slice(0, 6);
+    const newArrivals = products.sort((a, b) => b.date - a.date).slice(0, 10);
     
     const track = document.getElementById('arrival-track');
     
     track.innerHTML = newArrivals.map(item => `
-        <a href="/other pages/html pages/product-detail.html?id=${item.id}" class="slide-item">
-            <img src="assets/images/men/${item.subcategory}s/${item.img}" alt="${item.name}">
+        <a href="/other pages/html pages/product-detail.html?id=${item.id}&gender=${gender}" class="slide-item">
+            <img src="assets/images/${gender}/${item.subcategory}s/${item.img}" alt="${item.name}">
             <div class="slide-content">
                 <h3>${item.subcategory}<br><span>${item.cat}<span/></h3>
                 <p>STARTING AT ₹${item.price}</p>
@@ -188,17 +191,20 @@ cartIcon.addEventListener("click", () => {
 
 
 async function loadHomeSections() {
+    const container = document.querySelector('.container[data-gender]');
+    const gender = container ? container.getAttribute('data-gender') : 'men';
+
     try {
-        const response = await fetch('men-products.json');
+        const response = await fetch(`${gender}-products.json`);
         const products = await response.json();
 
         // 1. Logic for Trending Now (Items with high popularity)
         const trendingItems = products.filter(p => p.popularity >= 90).slice(0, 10);
-        renderHomeGrid('trending-grid', trendingItems);
+        renderHomeGrid('trending-grid', trendingItems,gender);
 
         // 2. Logic for Deal of the Day (Specific IDs or a random selection)
-        const dealItems = products.filter(p => p.id >= 301 && p.id <= 505).slice(0, 10);
-        renderHomeGrid('deal-grid', dealItems);
+        const dealItems = products.filter(p => p.id >= 301 && p.id <= 700).slice(0, 10);
+        renderHomeGrid('deal-grid', dealItems, gender);
 
     } catch (error) {
         console.error("Error loading home sections:", error);
@@ -206,14 +212,14 @@ async function loadHomeSections() {
 }
 
 // Reusable render function to keep your HTML clean
-function renderHomeGrid(containerId, items) {
+function renderHomeGrid(containerId, items,gender) {
     const grid = document.getElementById(containerId);
     if (!grid) return;
 
     grid.innerHTML = items.map(item => `
-        <div class="product-card" onclick="window.location.href='/other pages/html pages/product-detail.html?id=${item.id}'">
+        <div class="product-card" onclick="window.location.href='/other pages/html pages/product-detail.html?id=${item.id}&gender=${gender}'">
             <div class="image-container">
-                <img src="assets/images/men/${item.subcategory}s/${item.img}" alt="${item.name}">
+                <img src="assets/images/${gender}/${item.subcategory}s/${item.img}" alt="${item.name}">
                  <button type="button" class="wishlist-btn"
                 onclick="event.preventDefault(); event.stopPropagation(); handleWishlistClick(${item.id}, this)">
                 <i class="icon" data-lucide="heart">wishlist</i>
@@ -223,7 +229,7 @@ function renderHomeGrid(containerId, items) {
                 <div class="product-header">
                     <p class="product-name">${item.name}</p>
                     <div class="product-actions">
-                        <i data-lucide="bookmark"></i>
+                        
                     </div>
                 </div>
                 <div class="price-row">

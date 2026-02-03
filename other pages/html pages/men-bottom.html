@@ -47,8 +47,9 @@
     </script>
     <script src="../js pages/master.js"></script>
     <script>
-      // Simply tell the script which category this page belongs to
-      loadProductsByCategory("bottom");
+      document.addEventListener('DOMContentLoaded', () => {
+    loadProductsByCategory('men', 'bottom'); // Loads from men-products.json
+});
     </script>
   </body>
 </html>

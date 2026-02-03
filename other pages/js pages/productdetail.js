@@ -2,26 +2,31 @@ async function loadProductDetail() {
     // 1. Get the ID from the URL (e.g., ?id=3)
     const urlParams = new URLSearchParams(window.location.search);
     const productId = parseInt(urlParams.get('id'));
+    const gender = urlParams.get('gender') || 'men'; // Default to men if missing
+    try {
+        // 2. Fetch the same JSON file you used for the listing
+        const response = await fetch(`../../${gender}-products.json`);
+        const products = await response.json();
 
-    // 2. Fetch the same JSON file you used for the listing
-    const response = await fetch('../../men-products.json');
-    const products = await response.json();
+        // 3. Find the specific product that matches the ID
+        const product = products.find(p => p.id === productId);
 
-    // 3. Find the specific product that matches the ID
-    const product = products.find(p => p.id === productId);
-
-    if (product) {
-        renderDetail(product);
-        // NEW: Load related products based on subcategory
-        loadRelatedProducts(products, product);
-    } else {
-        document.getElementById('detail-content').innerHTML = "<h2>Product Not Found</h2>";
+        if (product) {
+            renderDetail(product, gender);
+            // NEW: Load related products based on subcategory
+            loadRelatedProducts(products, product,gender);
+        } else {
+            document.getElementById('detail-content').innerHTML = "<h2>Product Not Found</h2>";
+        }
+    } catch (error) {
+        console.error("Error loading product details:", error);
     }
+   
 }
 
-function renderDetail(product) {
+function renderDetail(product,gender) {
     const container = document.getElementById('detail-content');
-    const dynamicPath = `../../assets/images/men/${product.subcategory}s/${product.img}`;
+    const dynamicPath = `../../assets/images/${gender}/${product.subcategory}s/${product.img}`;
 
     container.innerHTML = `
         <div class="detail-images">
@@ -60,8 +65,9 @@ function renderDetail(product) {
 loadProductDetail();
 
 
-function loadRelatedProducts(allProducts, currentProduct) {
+function loadRelatedProducts(allProducts, currentProduct,gender) {
     const relatedGrid = document.getElementById('related-grid');
+    
 
     // Filter for products in the same subcategory, excluding current ID
     const related = allProducts
@@ -69,9 +75,9 @@ function loadRelatedProducts(allProducts, currentProduct) {
        // Show only the first 4 results
 
     relatedGrid.innerHTML = related.map(item => `
-        <div class="product-card" onclick="window.location.href='product-detail.html?id=${item.id}'">
+        <div class="product-card" onclick="window.location.href='product-detail.html?id=${item.id}&gender=${gender}'">
             <div class="related-images">
-                <img src="../../assets/images/men/${item.subcategory}s/${item.img}" alt="${item.name}">
+                <img src="../../assets/images/${gender}/${item.subcategory}s/${item.img}" alt="${item.name}">
             </div>
             <div class="product-info">
                 <h3>${item.name}</h3>

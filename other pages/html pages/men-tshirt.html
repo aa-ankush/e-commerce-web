@@ -51,8 +51,9 @@
 </script>
 <script  src="../js pages/master.js"></script>
 <script>
-        // This triggers the specific category for THIS page
-        loadProductsByCategory('tshirt');
+       document.addEventListener('DOMContentLoaded', () => {
+    loadProductsByCategory('men', 'tshirt'); // Loads from men-products.json
+});
     </script>
 
 </body>

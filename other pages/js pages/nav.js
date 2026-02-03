@@ -29,7 +29,7 @@ function loadSiteComponents() {
             <div class="nav-bottom">
                 <div class="pill-tags">
                     <a href="../../index.html" class="pill">Men Fashion</a>
-                    <a href="women.html" class="pill">Women Fashion</a>
+                    <a href="../../women.html" class="pill">Women Fashion</a>
                 </div>
                 <div class="search-container">
                     <input type="text" id="main-search"  placeholder="Find your Fashion">

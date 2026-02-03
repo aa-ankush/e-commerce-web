@@ -48,8 +48,9 @@
     </script>
     <script src="../js pages/master.js"></script>
     <script>
-      // This triggers the specific category for THIS page
-      loadProductsByCategory("accessory");
+    document.addEventListener('DOMContentLoaded', () => {
+    loadProductsByCategory('men', 'accessory'); // Loads from men-products.json
+});
     </script>
   </body>
 </html>

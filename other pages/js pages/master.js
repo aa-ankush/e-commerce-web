@@ -1,38 +1,34 @@
 // Variable to hold the raw data from the JSON file
 let masterData = [];
 
-async function loadProductsByCategory(requestedSub) {
+// Add 'gender' as a parameter
+async function loadProductsByCategory(gender, requestedSub) {
     try {
-        // 1. Fetch the master Men or Women file
-        const response = await fetch('../../men-products.json');
+        // Use the gender parameter to pick the right JSON file
+        const response = await fetch(`../../${gender}-products.json`);
         masterData = await response.json();
 
-        // 2. Filter the array to find only the items for the current page
-        // For example: if requestedSub is 'kurta', it only keeps kurtas.
         const filteredProducts = masterData.filter(item => item.subcategory === requestedSub);
+        renderProducts(filteredProducts, gender); // Pass gender to the renderer
 
-        // 3. Send the filtered list to your existing display function
-        renderProducts(filteredProducts);
-        
-        // 4. Dynamically update the page title
-        document.getElementById('category-title').innerText =`Home/men/ ${requestedSub.toUpperCase()}` 
-        
+        document.getElementById('category-title').innerText = `Home/${gender}/${requestedSub.toUpperCase()}`;
+
     } catch (error) {
         console.error("Failed to load products:", error);
     }
 }
 
 
-function renderProducts(data) {
+function renderProducts(data, gender) {
     const grid = document.getElementById('product-grid');
 
     grid.innerHTML = data.map(product => {
         // Dynamically build the path: e.g., assets/images/men/shirts/1.jpg
-        const dynamicPath = `../../assets/images/men/${product.subcategory}s/${product.img}`;
+        const dynamicPath = `../../assets/images/${gender}/${product.subcategory}s/${product.img}`;
         
 
         return `
-            <a href="product-detail.html?id=${product.id}" class="product-card">
+            <a href="product-detail.html?id=${product.id}&gender=${gender}" class="product-card">
                 <div class="image-wrapper">
                     <button type="button" class="wishlist-btn" 
                 onclick="event.preventDefault(); event.stopPropagation(); handleWishlistClick(${product.id}, this)">

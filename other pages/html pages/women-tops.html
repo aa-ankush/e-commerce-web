@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Men shirts</title>
+    <script src="../js pages/nav.js"></script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../css pages/nav.css" />
+    <link rel="stylesheet" href="../css pages/shirt.css" />
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+    <div class="product-page-container">
+      <div class="page-header">
+        <p class="breadcrumb" id="category-title">Home / Men's shirt</p>
+        <div class="header-main">
+          <h1>Men shirts - <span id="item-count">4</span> items</h1>
+
+          <div class="sort-container">
+            <select id="sort-options" onchange="sortProducts()">
+              <option value="default">Select Sorting Options</option>
+              <option value="price-high">Price-High to Low</option>
+              <option value="price-low">Price-Low to High</option>
+              <option value="newest">Newest</option>
+              <option value="popularity">Popularity</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-grid" id="product-grid"></div>
+
+      <div class="products-display">
+        <div class="product-grid" id="accessories-grid"></div>
+
+        <div id="end-of-list" class="end-message">
+          <p>More items on the way...</p>
+          <span>Curating the best for you.</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer"></div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      // Initialize icons
+      lucide.createIcons();
+    </script>
+    <script src="../js pages/master.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+    loadProductsByCategory('women', 'tshirt'); // Loads from men-products.json
+});
+    </script>
+    <script src="../js pages/wishlist-logic.js"></script>
+  </body>
+</html>

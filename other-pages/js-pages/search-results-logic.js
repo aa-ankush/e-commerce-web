@@ -1,39 +1,56 @@
 async function loadSearchResults() {
-    // 1. Get the query 'q' from the URL parameters
     const params = new URLSearchParams(window.location.search);
     const query = params.get('q');
 
+    // 1. Get the gender context from the URL
+    const genderContext = params.get('gender') || 'men';
+
+
     if (!query) return;
 
-    // Update the title to show what the user searched for
     document.getElementById('search-title').innerText = `Search Results for "${query}"`;
 
-    // 2. Fetch your master product data
-    const response = await fetch('../../men-products.json');
-    const products = await response.json();
 
-    // 3. Perform the same multi-keyword filter logic
-    const searchTerms = query.toLowerCase().split(" ");
-    const filteredResults = products.filter(product => {
-        const productData = `${product.name} ${product.subcategory} ${product.cat}`.toLowerCase();
-        return searchTerms.every(term => productData.includes(term));
-    });
+    try {
+        // 2. Fetch ONLY the relevant JSON file
+        const response = await fetch(`../../${genderContext}-products.json`);
+        const products = await response.json();
 
-    // 4. Render the filtered items
+        // 3. Filter as usual
+        const searchTerms = query.toLowerCase().split(" ");
+        const filteredResults = products.filter(product => {
+            const productData = `${product.name} ${product.subcategory} ${product.cat}`.toLowerCase();
+            return searchTerms.every(term => productData.includes(term));
+        });
+
+        // 4. Render results
+        renderSearchResults(filteredResults, genderContext);
+    }
+
+    
+    catch (error) {
+        console.error("Failed to load products:", error);
+    }
+ 
+}
+
+function renderSearchResults(filteredResults, ) {
     const grid = document.getElementById('search-results-grid');
 
     grid.innerHTML = filteredResults.map(product => {
-        // Dynamically build the path: e.g., assets/images/men/shirts/1.jpg
-        const dynamicPath = `../../assets/images/men/${product.subcategory}s/${product.img}`;
+        // Automatically detect gender based on your ID range (e.g., Women start at 604)
+        const gender = (product.id >= 604) ? 'women' : 'men';
 
+        // Construct the correct path for either gender
+        const dynamicPath = `../../assets/images/${gender}/${product.subcategory}s/${product.img}`;
 
         return `
-            <a href="product-detail.html?id=${product.id}" class="product-card">
+            <a href="product-detail.html?id=${product.id}&gender=${gender}" class="product-card">
                 <div class="image-wrapper">
                     <button type="button" class="wishlist-btn" 
-                onclick="event.preventDefault(); event.stopPropagation(); handleWishlistClick(${product.id}, this)">
-                <i class="icon" data-lucide="heart"></i>
-            </button>
+                        onclick="event.preventDefault(); event.stopPropagation(); handleWishlistClick(${product.id}, this)">
+                        <i class="icon" data-lucide="heart"></i>
+                    </button>
                     <img src="${dynamicPath}" alt="${product.name}">
                 </div>
                 <div class="info-area">
@@ -44,7 +61,6 @@ async function loadSearchResults() {
         `;
     }).join('');
 
-    // Re-initialize any icons if using Lucide
     if (window.lucide) lucide.createIcons();
 }
 

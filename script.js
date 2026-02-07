@@ -156,9 +156,14 @@ function executeSearch() {
     const searchInput = document.getElementById('main-search');
     const query = searchInput.value.trim();
 
+    // 1. Detect current context (Men or Women)
+    // We check if the 'women' index or category page is active
+    const isWomenSection = window.location.href.includes('women');
+    const currentGender = isWomenSection ? 'women' : 'men'
+
     if (query) {
         // This line is responsible for the "Jump" to the new page
-        window.location.href = `other-pages/html-pages/search-result.html?q=${encodeURIComponent(query)}`;
+        window.location.href = `other-pages/html-pages/search-result.html?q=${encodeURIComponent(query)}&gender=${currentGender}`;
     }
     console.log("you click the button");
 

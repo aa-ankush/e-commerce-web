@@ -208,7 +208,7 @@ async function loadHomeSections() {
         renderHomeGrid('trending-grid', trendingItems, gender);
 
         // 2. Logic for Deal of the Day (Specific IDs or a random selection)
-        const dealItems = products.filter(p => p.id >= 320 && p.id <= 600).slice(0, 20);
+        const dealItems = products.filter(p => p.price >= 301 && p.price <= 1000).slice(0, 10);
         renderHomeGrid('deal-grid', dealItems, gender);
 
     } catch (error) {

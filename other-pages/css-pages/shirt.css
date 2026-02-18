@@ -42,11 +42,15 @@
   gap: 20px;
 }
 
+
+
 .product-card {
   position: relative;
   transition: 0.3s;
   padding: 1rem;
 }
+
+
 
 .image-wrapper {
   position: relative;
@@ -409,4 +413,79 @@ a {
 h1 {
   font-weight: 600;
   text-align: center;
+}
+
+
+
+@media screen and (max-width: 480px) {
+    /* Target the product grids */
+    .product-grid {
+        display: grid !important;
+        /* Force exactly two equal columns */
+        grid-template-columns: repeat(2, 1fr) !important; 
+        /* Reduce gap so products have more space */
+        gap: 10px !important; 
+        padding: 10px !important;
+    }
+
+    /* Adjust the card styling for smaller screens */
+    .product-card {
+        width: 100% !important; /* Ensure card fills its grid cell */
+        margin: 0 !important;
+    }
+
+    /* Shrink text and images slightly to fit the 2-column layout */
+    .product-card img {
+        height: 180px !important; /* Fixed height keeps the grid aligned */
+        object-fit: cover;
+    }
+
+    .info-area h3 {
+        font-size: 0.85rem !important; /* Prevents long names from breaking the layout */
+    }
+
+        .nav-top {
+        padding: 10px 0 !important;
+        gap: 10px !important;
+        margin-bottom: 0px;
+    }
+
+     .nav-bottom {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .search-container {
+        width: 100%; /* Search bar takes full width */
+    }
+
+     .pill-tags {
+        display: none;
+    }
+
+    .navbar {
+        padding: 0px;
+    }
+
+    .header-main {
+      display: none;
+    }
+}
+
+
+
+@media screen and (max-width: 480px) {
+  .related-grid {
+     display: grid !important;
+        /* Force exactly two equal columns */
+        grid-template-columns: repeat(2, 1fr) !important; 
+        /* Reduce gap so products have more space */
+        gap: 10px !important; 
+        padding: 10px !important;
+  }
+
+  .related-products {
+    padding: 0 20px !important;
+  }
 }

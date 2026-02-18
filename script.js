@@ -170,6 +170,7 @@ function executeSearch() {
 }
 
 
+
 const searchInput = document.getElementById('main-search');
 
 searchInput.addEventListener('keydown', function (event) {
@@ -208,7 +209,7 @@ async function loadHomeSections() {
         renderHomeGrid('trending-grid', trendingItems, gender);
 
         // 2. Logic for Deal of the Day (Specific IDs or a random selection)
-        const dealItems = products.filter(p => p.id >= 201 && p.id <= 750).slice(0, 10);
+        const dealItems = products.filter(p => p.id >= 301 && p.id <= 750).slice(0, 10);
         renderHomeGrid('deal-grid', dealItems, gender);
 
     } catch (error) {

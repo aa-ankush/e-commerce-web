@@ -475,17 +475,3 @@ h1 {
 
 
 
-@media screen and (max-width: 480px) {
-  .related-grid {
-     display: grid !important;
-        /* Force exactly two equal columns */
-        grid-template-columns: repeat(2, 1fr) !important; 
-        /* Reduce gap so products have more space */
-        gap: 10px !important; 
-        padding: 10px !important;
-  }
-
-  .related-products {
-    padding: 0 20px !important;
-  }
-}

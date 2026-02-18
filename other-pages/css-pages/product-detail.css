@@ -190,3 +190,57 @@
 h1 {
   margin-bottom: 24px;
 }
+
+@media screen and (max-width: 480px) {
+  .related-grid {
+     display: grid !important;
+        /* Force exactly two equal columns */
+        grid-template-columns: repeat(2, 1fr) !important; 
+        /* Reduce gap so products have more space */
+        gap: 10px !important; 
+        padding: 10px !important;
+  }
+
+  .related-products {
+    padding: 0 20px !important;
+  }
+
+     .nav-top {
+        padding: 10px 0 !important;
+        gap: 10px !important;
+        margin-bottom: 0px;
+    }
+
+     .nav-bottom {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+    }
+
+       .pill-tags {
+        display: none;
+    }
+
+    .navbar {
+        padding: 0px;
+    }
+
+       .search-container {
+        width: 100%; /* Search bar takes full width */
+    }
+
+    h3 {
+      font-size: 1rem;
+    }
+
+    .footer-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer-section .links {
+      display: flex;
+      flex-direction: column;
+    }
+}

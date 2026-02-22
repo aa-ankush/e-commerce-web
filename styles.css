@@ -194,7 +194,7 @@ body {
 
 /* Icon Sizes */
 .icon { width: 24px; height: 24px; cursor: pointer; }
-.icon-small { width: 20px; height: 20px; }
+.icon-small { width: 24px; height: 24px; }
 [data-lucide="chevron-down"], [data-lucide="search"] { width: 16px; height: 16px; color: #888; }
 
 
@@ -1458,8 +1458,12 @@ a {
     .testimonial-track .testimonial-card {
          flex: 0 0 100% !important; 
         max-width: 100% !important;
-        padding: 0 10px; /* Small inner padding so it doesn't touch the glass */
+        padding:  10px; /* Small inner padding so it doesn't touch the glass */
         box-sizing: border-box;
+    }
+
+    .quote {
+        font-size: 13px;
     }
 
     @media screen and (max-width: 480px) {
@@ -1480,6 +1484,8 @@ a {
         border-radius: 8px;
     }
 
+
+
     /* Shrink the icons and text slightly for mobile */
     .feature-icon i {
         width: 24px !important;
@@ -1495,5 +1501,17 @@ a {
         font-size: 0.75rem !important; /* Smaller description */
         line-height: 1.2 !important;
     }
+
+    .cart-icon,.user-icon {
+        border: none;
+    }
+
+    .cart-count-badge {
+        font-size: 10px;
+        align-items: center;
+        height: 16px;
+        width: 16px;
+    }
+
 }
 }

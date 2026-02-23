@@ -1513,5 +1513,11 @@ a {
         width: 16px;
     }
 
+     .cart-count-badge {
+    position: absolute;
+    left: 1.5rem;
+    bottom: 1.5rem;
+    }
+
 }
 }

@@ -2,7 +2,7 @@
 .product-page-container {
   max-width: 1400px;
   margin: 20px auto;
-  padding: 0 20px;
+  /* padding: 0 20px; */
   font-family: "Segoe UI", Tahoma, sans-serif;
 }
 
@@ -47,7 +47,7 @@
 .product-card {
   position: relative;
   transition: 0.3s;
-  padding: 1rem;
+  /* padding: 1rem; */
 }
 
 
@@ -425,7 +425,7 @@ h1 {
         grid-template-columns: repeat(2, 1fr) !important; 
         /* Reduce gap so products have more space */
         gap: 10px !important; 
-        padding: 10px !important;
+        /* padding: 10px !important; */
     }
 
     /* Adjust the card styling for smaller screens */
@@ -436,7 +436,7 @@ h1 {
 
     /* Shrink text and images slightly to fit the 2-column layout */
     .product-card img {
-        height: 180px !important; /* Fixed height keeps the grid aligned */
+        /* height: 180px !important; */
         object-fit: cover;
     }
 
@@ -475,3 +475,211 @@ h1 {
 
 
 
+
+
+
+/* responsiveness------------------------------------------------- */
+
+/* --- TABLET VIEW (768px and below) --- */
+@media screen and (max-width: 768px) {
+    /* Navbar: Stack the search and pills vertically */
+    .nav-bottom {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .search-container {
+        width: 100%; /* Search bar takes full width */
+    }
+
+    /* Grids: Show 2 items per row instead of 4 */
+    .product-grid, .category-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px;
+    }
+
+    /* Hero Slider: Adjust height for smaller screens */
+    .hero-slider {
+        height: 350px;
+    }
+}
+
+/* --- MOBILE VIEW (480px and below) --- */
+@media screen and (max-width: 480px) {
+    /* Logo: Reduce size slightly */
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    /* Grids: Most items should stack in 1 or 2 columns */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr !important; /* Categories stack vertically */
+    }
+
+    /* Feature Section: Stack shipping/support items */
+    .features-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Hero Section: Make images fit better */
+    .hero-slider {
+        height: 250px;
+    }
+
+    /* Footer: Center links and stack them */
+    .footer-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Reduce global container margins */
+    .container {
+        padding: 0 10px !important; /* Reduced from your desktop padding */
+        margin-top: 20px !important; /* Tighter vertical spacing between sections */
+    }
+
+    /* Navbar padding reduction */
+    /* .nav-container {
+        padding: 5px 10px !important;
+    } */
+
+    .nav-top {
+        padding: 10px 0 !important;
+        gap: 10px !important;
+        margin-bottom: 0px;
+    }
+
+    /* Reduce gaps in your product and category grids */
+    .product-grid, .category-grid {
+        gap: 8px !important;
+    }
+
+    /* Tighter spacing for section titles */
+    .section-title {
+        margin-bottom: 15px !important;
+        font-size: 1.4rem !important;
+    }
+
+    /* Adjust the hero section to bleed closer to the edges */
+    .hero.container {
+        padding: 0 !important; /* Full-width hero looks better on mobile */
+    }
+
+    .pill-tags {
+        display: none;
+    }
+
+    .navbar {
+        padding: 0px;
+    }
+
+    .slider-track a {
+        width: 100%;
+    }
+
+    .nav-right{
+        gap: 0px
+    } ;
+
+
+    #arrival-track {
+        display: flex !important;
+        gap: 0 !important; /* Remove gaps for a clean full-width look */
+    }
+
+    /* 3. Each product card now takes exactly one full screen width */
+    #arrival-track .slide-item {
+        flex: 0 0 100% !important; 
+        max-width: 100% !important;
+        padding: 0 10px; /* Small inner padding so it doesn't touch the glass */
+        box-sizing: border-box;
+    }
+
+    /* 4. Ensure the image scales correctly */
+    #arrival-track .product-card img {
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 0; /* Optional: square edges look better for full-width */
+    }
+
+    .testimonial-track .testimonial-card {
+         flex: 0 0 100% !important; 
+        max-width: 100% !important;
+        padding:  10px; /* Small inner padding so it doesn't touch the glass */
+        box-sizing: border-box;
+    }
+
+    .quote {
+        font-size: 13px;
+    }
+
+    @media screen and (max-width: 480px) {
+    /* Change the container from flex to grid */
+    .features-section {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* Two equal columns */
+        gap: 15px !important; /* Spacing between the 4 items */
+        padding: 15px 10px !important;
+    }
+
+    /* Adjust the individual items to fit the smaller boxes */
+    .feature-item {
+        flex-direction: column !important; /* Stack icon on top of text */
+        text-align: center !important;
+        padding: 10px !important;
+        background: #f9f9f9; /* Optional: light background to define the boxes */
+        border-radius: 8px;
+    }
+
+
+
+    /* Shrink the icons and text slightly for mobile */
+    .feature-icon i {
+        width: 24px !important;
+        height: 24px !important;
+    }
+
+    .feature-content h3 {
+        font-size: 0.9rem !important; /* Smaller titles to prevent wrapping */
+        margin-bottom: 5px !important;
+    }
+
+    .feature-content p {
+        font-size: 0.75rem !important; /* Smaller description */
+        line-height: 1.2 !important;
+    }
+
+    .cart-icon,.user-icon {
+        border: none;
+    }
+
+    .cart-count-badge {
+        font-size: 10px;
+        align-items: center;
+        height: 16px;
+        width: 16px;
+    }
+
+    .cart-count-badge {
+    position: absolute;
+    left: 1.5rem;
+    bottom: 1.5rem;
+    }
+
+}
+}

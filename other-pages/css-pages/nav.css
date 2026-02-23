@@ -287,7 +287,7 @@ body {
 .menu-item a {
   text-decoration: none;
   color: #111;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 16px;
   display: flex;
   justify-content: space-between;

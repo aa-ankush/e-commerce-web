@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css-pages/nav.css">
+    <link rel="stylesheet" href="../css-pages/shirt.css">
+    <link rel="stylesheet" href="../css-pages/checkout.css">
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+    <div class="checkout-container">
+    <div class="checkout-left">
+       
+
+        <section class="shipping-address">
+            <form action="">
+                 <section class="contact-info">
+            <h2>Contact</h2>
+            <input type="email" id="email" placeholder="Email" required>
+        </section>
+
+
+        
+            <h2>Shipping address</h2>
+            <select id="country"><option value="India">India</option></select>
+            <div class="input-row">
+                <input type="text" placeholder="First name">
+                <input type="text" placeholder="Last name">
+            </div>
+            <input type="text" placeholder="Address" required>
+            <input type="text" placeholder="Apartment, suite, etc. (optional)">
+            <div class="input-row">
+                <input type="text" placeholder="City">
+                <input type="text" placeholder="State">
+                <input type="text" placeholder="PIN code">
+            </div>
+            <input type="tel" placeholder="Phone (optional)">
+        </section>
+        
+        <button type="button" class="continue-btn" onclick="processCheckout()">Continue to shipping</button>
+        </form>
+    </div>
+
+    <div class="checkout-right" id="order-summary">
+        <div class="summary-totals">
+            <div class="bill-head">BILLING DETAILS</div>
+            <div class="total-row"><span>Subtotal</span> <span id="subtotal">₹0</span></div>
+            <div class="total-row"><span>Shipping</span> <span style="color: #6b6969;">Calculated at next step</span></div>
+            <div class="total-row grand-total"><strong>Total</strong> <strong id="grand-total">₹0</strong></div>
+        </div>
+    </div>
+</div>
+
+
+<div id="custom-alert" class="custom-alert">
+    <span id="alert-message">Item added to cart!</span>
+</div>
+
+
+<!-- payment method -->
+<div id="paymentModal" class="modal-overlay">
+    <div class="modal-content payment-box">
+        <span class="close-modal" onclick="closePaymentModal()">&times;</span>
+        <h3>Select Payment Method</h3>
+        <div class="payment-options">
+            <label class="payment-option">
+                <input type="radio" name="payment" value="UPI">
+                <span>UPI (Google Pay, PhonePe)</span>
+            </label>
+            <label class="payment-option">
+                <input type="radio" name="payment" value="Card">
+                <span>Credit / Debit Card</span>
+            </label>
+            <label class="payment-option">
+                <input type="radio" name="payment" value="COD">
+                <span>Cash on Delivery (COD)</span>
+            </label>
+        </div>
+        <button type="button" class="pay-now-btn" onclick="completeOrder()">Complete Order</button>
+    </div>
+</div>
+
+<script src="../js-pages/master.js"></script>
+<script src="../js-pages/wishlist-logic.js"></script>
+<script src="../js-pages/cart-logic.js"></script>
+<script src="../js-pages/checkoutLogic.js"></script>
+</body>
+</html>

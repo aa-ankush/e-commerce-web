@@ -115,7 +115,7 @@ async function initArrivalSlider() {
     const products = await response.json();
 
     // Get the latest 6 products (sorted by date)
-    const newArrivals = products.sort((a, b) => b.date - a.date).slice(0, 10);
+    const newArrivals = products.sort((a, b) => b.date - a.date).slice(0, 12);
 
     const track = document.getElementById('arrival-track');
 
@@ -139,11 +139,11 @@ function autoSlide() {
     // Move by 1 slide width at a time
     currentSlideIndex++;
 
-    if (currentSlideIndex > totalSlides - 3) {
+    if (currentSlideIndex > totalSlides * (1/4)) {
         currentSlideIndex = 0; // Reset to beginning
     }
 
-    const movePercentage = currentSlideIndex * (100 / 3);
+    const movePercentage = currentSlideIndex * (100 / 1);
     track.style.transform = `translateX(-${movePercentage}%)`;
 }
 
@@ -222,11 +222,19 @@ function renderHomeGrid(containerId, items, gender) {
     const grid = document.getElementById(containerId);
     if (!grid) return;
 
-    grid.innerHTML = items.map(item => `
+    // 1. Get the current wishlist from localStorage first
+    const wishlist = JSON.parse(localStorage.getItem('mw_wishlist')) || [];
+
+    grid.innerHTML = items.map(item =>{
+        // 2. Check if this specific product ID is already in the wishlist
+        // If it is, we create a string 'active', otherwise it stays empty ''
+        const isLiked = wishlist.includes(item.id) ? 'active' : '';
+        
+      return  `
     <div class="product-card" onclick="window.location.href='other-pages/html-pages/product-detail.html?id=${item.id}&gender=${gender}'">
             <div class="image-container">
                 <img src="assets/images/${gender}/${item.subcategory}s/${item.img}" alt="${item.name}">
-                 <button type="button" class="wishlist-btn"
+                 <button type="button" class="wishlist-btn ${isLiked}"
                 onclick="event.preventDefault(); event.stopPropagation(); handleWishlistClick(${item.id}, this)">
                 <i class="icon" data-lucide="heart">wishlist</i>
             </button>
@@ -245,7 +253,7 @@ function renderHomeGrid(containerId, items, gender) {
                 </div>
             </div>
         </div>
-    `).join('');
+    `}).join('');
 
     // Refresh icons
     lucide.createIcons();

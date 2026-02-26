@@ -22,15 +22,21 @@ async function loadProductsByCategory(gender, requestedSub) {
 function renderProducts(data, gender) {
     const grid = document.getElementById('product-grid');
 
+    // 1. Get the current wishlist from storage
+    const wishlist = JSON.parse(localStorage.getItem('mw_wishlist')) || [];
+
     grid.innerHTML = data.map(product => {
         // Dynamically build the path: e.g., assets/images/men/shirts/1.jpg
         const dynamicPath = `../../assets/images/${gender}/${product.subcategory}s/${product.img}`;
+
+        // 2. Check if this specific item is already liked
+        const isLiked = wishlist.includes(product.id) ? 'active' : '';
 
 
         return `
             <a href="product-detail.html?id=${product.id}&gender=${gender}" class="product-card">
                 <div class="image-wrapper">
-                    <button type="button" class="wishlist-btn" 
+                    <button type="button" class="wishlist-btn ${isLiked}" 
                 onclick="event.preventDefault(); event.stopPropagation(); handleWishlistClick(${product.id}, this)">
                 <i class="icon" data-lucide="heart"></i>
             </button>
@@ -38,6 +44,7 @@ function renderProducts(data, gender) {
                 </div>
                 <div class="info-area">
                     <h3>${product.name}</h3>
+                    <p>${product.cat}</p>
                     <span class="price">₹ ${product.price}</span>
                 </div>
             </a>
@@ -51,46 +58,29 @@ function renderProducts(data, gender) {
 
 }
 
-// function sortProducts() {
-//     const sortBy = document.getElementById('sort-options').value;
 
-//     // Get the current subcategory being viewed (we can store this in a variable)
-//      const currentSub = document.getElementsByClassName('category-title').innerText.toLowerCase();
-
-//     // Start with only the items belonging to this category
-//      let dataToSort = masterData.filter(item => item.subcategory === currentSub);
-
-
-//     if (sortBy === 'price-low') {
-//         dataToSort.sort((a, b) => a.price - b.price);
-//     } else if (sortBy === 'price-high') {
-//         dataToSort.sort((a, b) => b.price - a.price);
-//     } else if (sortBy === 'popularity') {
-//         dataToSort.sort((a, b) => b.popularity - a.popularity);
-//     }else if (sortBy === 'popularity') {
-//          data.sort((a, b) => b.popularity - a.popularity);
-//     }
-
-
-//     renderProducts(dataToSort);
-// }
 
 function sortProducts() {
     const sortBy = document.getElementById('sort-options').value;
-    const titleElement = document.getElementById('category-title'); // Use ID for better accuracy
+    const titleElement = document.getElementById('category-title');
 
-    if (!titleElement) return;
+    if (!titleElement || !masterData.length) return;
 
-    // Convert "SHIRTS" to "shirt" correctly
-    let currentSub = titleElement.innerText.toLowerCase().trim();
+    // 1. Get Gender and Subcategory from the breadcrumb
+    // Breadcrumb format: "Home/men/SHIRT"
+    const pathParts = titleElement.innerText.split('/');
+    const currentGender = pathParts[1].toLowerCase(); // This gets 'men'
+    let currentSub = pathParts[2].toLowerCase().trim(); // This gets 'shirt'
+
+    // 2. Handle pluralization for filtering
     if (currentSub.endsWith('s')) {
-        currentSub = currentSub.slice(0, -1); // Removes only the last character
+        currentSub = currentSub.slice(0, -1);
     }
 
-    // Filter the master data using the cleaned string
+    // 3. Filter the master data
     let dataToSort = masterData.filter(item => item.subcategory === currentSub);
 
-    // Perform the sort
+    // 4. Perform the sort
     if (sortBy === 'price-low') {
         dataToSort.sort((a, b) => a.price - b.price);
     } else if (sortBy === 'price-high') {
@@ -99,7 +89,8 @@ function sortProducts() {
         dataToSort.sort((a, b) => b.popularity - a.popularity);
     }
 
-    renderProducts(dataToSort); // Redraw the grid with sorted items
+    // 5. FIX: Pass the 'currentGender' so image paths work!
+    renderProducts(dataToSort, currentGender);
 }
 
 
@@ -149,7 +140,7 @@ function initScrollObserver() {
     observer.observe(endMessage);
 }
 
-// Call this function inside your DOMContentLoaded or after your products load
+
 document.addEventListener('DOMContentLoaded', () => {
     // ... your existing fetch logic ...
     initScrollObserver();

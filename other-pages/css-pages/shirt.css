@@ -2,7 +2,7 @@
 .product-page-container {
   max-width: 1400px;
   margin: 20px auto;
-  /* padding: 0 20px; */
+  padding: 0 20px; 
   font-family: "Segoe UI", Tahoma, sans-serif;
 }
 
@@ -89,12 +89,12 @@
 .info-area p {
   font-size: 13px;
   color: #666;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 .price {
   font-weight: 700;
   color: #111;
-  font-size: 15px;
+  font-size: 13px;
 }
 
 a {
@@ -162,7 +162,7 @@ a {
 
 .product-image img {
   width: 100%;
-  height: auto;
+  height: 500px;
   display: block;
 }
 
@@ -197,7 +197,7 @@ a {
 
 .discount-price {
   font-weight: bold;
-  color: #000;
+  color: #2f2f2f;
 }
 
 /* Side-by-Side Buttons */
@@ -233,7 +233,7 @@ a {
 }
 
 .btn-add-cart {
-  background-color: #000;
+  background-color: #2f2f2f;
   color: #fff;
   flex-grow: 1; /* Makes the Add to Cart button slightly wider */
   justify-content: center;
@@ -339,6 +339,20 @@ a {
   margin: 20px auto;
 }
 
+.cart-summary {
+  max-width: 1200px;
+  margin: 20px auto;
+  text-align: end;
+  margin-right: 5rem;
+}
+
+.btn-primary {
+  background-color: #2f2f2f;
+  color: white;
+  padding: 8px 12px;
+  width: 20%;
+}
+
 /* Header row styling */
 .cart-header {
   display: grid;
@@ -440,8 +454,18 @@ h1 {
         object-fit: cover;
     }
 
+    .product-image img {
+      height: 280px;
+    }
+
+    .product-title,.discount-price {
+      font-size: 12px;
+    }
+
+    
+
     .info-area h3 {
-        font-size: 0.85rem !important; /* Prevents long names from breaking the layout */
+        font-size: 12px !important; /* Prevents long names from breaking the layout */
     }
 
         .nav-top {
@@ -453,7 +477,7 @@ h1 {
      .nav-bottom {
         flex-direction: column;
         gap: 15px;
-        padding: 10px;
+        /* padding: 10px; */
     }
 
     .search-container {
@@ -473,6 +497,27 @@ h1 {
     }
 }
 
+/* tost notifcation */
+
+.custom-alert {
+    position: fixed;
+    bottom: -100px; /* Hidden by default */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: bottom 0.5s ease-in-out; /* Smooth slide effect */
+    z-index: 10000;
+    font-weight: 500;
+}
+
+.custom-alert.show {
+    bottom: 30px; /* Slide up into view */
+}
+
 
 
 
@@ -486,7 +531,7 @@ h1 {
     .nav-bottom {
         flex-direction: column;
         gap: 15px;
-        padding: 10px;
+        padding: 10px 10px;
     }
 
     .search-container {
@@ -549,7 +594,7 @@ h1 {
 @media screen and (max-width: 480px) {
     /* Reduce global container margins */
     .container {
-        padding: 0 10px !important; /* Reduced from your desktop padding */
+        padding: 0 0 !important; /* Reduced from your desktop padding */
         margin-top: 20px !important; /* Tighter vertical spacing between sections */
     }
 
@@ -681,5 +726,90 @@ h1 {
     bottom: 1.5rem;
     }
 
+    .product-page-container {
+      padding: 0px;
+    }
+
 }
+}
+
+
+
+
+
+.img {
+  contain: content;
+  width: 255px;
+  height: 341px;
+
+}
+
+
+
+
+
+@media screen and (max-width: 480px) {
+    /* 1. Reduce Heading Size */
+    h1, .cart-title {
+        font-size: 1.5rem !important;
+        text-align: center;
+    }
+
+    /* 2. Fix the Table Headers */
+    .cart-header {
+        font-size: 10px; /* Much smaller font for headers */
+        gap: 5px;
+        padding-bottom: 10px;
+    }
+
+
+.cart-row {
+  display: flex;
+  gap: 6px;
+}
+
+    .product-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+    }
+
+    /* 3. Shrink Product Image */
+    .product-col img {
+        width: 80px !important; /* Smaller image to save space */
+        height: 100px;
+        object-fit: cover;
+    }
+
+    /* 4. Adjust Product Info */
+    .product-info h4 {
+        font-size: 14px;
+        margin-bottom: 2px;
+    }
+
+    .product-info p {
+        font-size: 12px;
+    }
+
+    /* 5. Handle Price and Quantity Layout */
+    .cart-item-row {
+        display: flex;
+        flex-wrap: wrap; /* Allow elements to wrap to the next line if needed */
+        gap: 10px;
+        align-items: center;
+    }
+
+    .quantity-col {
+        transform: scale(0.8); /* Shrink the +/- buttons slightly */
+        margin-top: 5px;
+    }
+
+    .price-col {
+        font-size: 14px;
+        /* font-weight: bold; */
+    }
+
+    .total-col {
+      font-size: 14px;
+    }
 }

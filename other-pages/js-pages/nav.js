@@ -139,15 +139,72 @@ document.addEventListener('DOMContentLoaded', loadSiteComponents);
 // footer
 
 function loadFooter(params) {
-    const footerHTML = `<div class="footer-section">
-        <div class="div title">M&w <span>wear</span></div>
-        <div class="links">
-          <a href="">support Center</a>
-          <a href="">Invoice</a>
-          <a href="">Contact</a>
-          <a href="">Career</a>
+    const footerHTML = `<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-row">
+      <div class="footer-col brand-info">
+        <h2 class="footer-logo">Krist</h2>
+        <div class="contact-details">
+          <p><i class="fas fa-phone-alt"></i> (704) 555-0127</p>
+          <p><i class="far fa-envelope"></i> krist@example.com</p>
+          <p><i class="fas fa-map-marker-alt"></i> 3891 Ranchview Dr. Richardson, California 62639</p>
         </div>
-      </div>`;
+      </div>
+
+      <div class="footer-col">
+        <h4>Information</h4>
+        <ul>
+          <li><a href="#">My Account</a></li>
+          <li><a href="#">Login</a></li>
+          <li><a href="#">My Cart</a></li>
+          <li><a href="#">My Wishlist</a></li>
+          <li><a href="#">Checkout</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Service</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Delivery Information</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col subscribe-col">
+        <h4>Subscribe</h4>
+        <p class="sub-text">Enter your email below to be the first to know about new collections and product launches.</p>
+        <div class="input-group">
+          <i class="far fa-envelope"></i>
+          <input type="email" placeholder="Your Email">
+          <button type="submit"><i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <hr class="footer-line">
+
+    <div class="footer-bottom">
+      <div class="payment-methods">
+        <img src="https://img.icons8.com/color/48/visa.png" alt="visa">
+        <img src="https://img.icons8.com/color/48/mastercard.png" alt="mastercard">
+        <img src="https://img.icons8.com/color/48/google-pay.png" alt="gpay">
+        <img src="https://img.icons8.com/color/48/amex.png" alt="amex">
+        <img src="https://img.icons8.com/color/48/paypal.png" alt="paypal">
+      </div>
+      
+      <p class="copy-text">&copy; 2023 Krist All Rights are reserved</p>
+
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>`;
 
     document.getElementById("footer").innerHTML = footerHTML
 }
@@ -197,10 +254,7 @@ const searchInput = document.getElementById('main-search');
 
 searchInput.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
-        // This stops the page from doing its default "form reload"
         event.preventDefault();
-
-        // Triggers your existing search function
         executeSearch();
     }
 });

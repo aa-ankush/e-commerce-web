@@ -36,8 +36,14 @@ async function loadSearchResults() {
 
 function renderSearchResults(filteredResults, ) {
     const grid = document.getElementById('search-results-grid');
+    // 1. Get the current wishlist from localStorage first
+    const wishlist = JSON.parse(localStorage.getItem('mw_wishlist')) || [];
 
     grid.innerHTML = filteredResults.map(product => {
+
+        // 2. Check if this specific product ID is already in the wishlist
+        // If it is, we create a string 'active', otherwise it stays empty ''
+        const isLiked = wishlist.includes(product.id) ? 'active' : '';
         // Automatically detect gender based on your ID range (e.g., Women start at 604)
         const gender = (product.id >= 604) ? 'women' : 'men';
 
@@ -47,7 +53,7 @@ function renderSearchResults(filteredResults, ) {
         return `
             <a href="product-detail.html?id=${product.id}&gender=${gender}" class="product-card">
                 <div class="image-wrapper">
-                    <button type="button" class="wishlist-btn" 
+                    <button type="button" class="wishlist-btn ${isLiked}"" 
                         onclick="event.preventDefault(); event.stopPropagation(); handleWishlistClick(${product.id}, this)">
                         <i class="icon" data-lucide="heart"></i>
                     </button>

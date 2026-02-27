@@ -1655,5 +1655,14 @@ a {
     bottom: 1.5rem;
     }
 
+    .offer-title-dark {
+        font-size: 30px;
+    }
+
+    .sub-text {
+        font-size: 1rem;
+        opacity: 1;
+    }
+
 }
 }

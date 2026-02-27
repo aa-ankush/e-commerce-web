@@ -143,11 +143,11 @@ function loadFooter(params) {
   <div class="footer-container">
     <div class="footer-row">
       <div class="footer-col brand-info">
-        <h2 class="footer-logo">Krist</h2>
+        <h2 class="footer-logo">M&W STUDIO</h2>
         <div class="contact-details">
           <p><i class="fas fa-phone-alt"></i> (704) 555-0127</p>
-          <p><i class="far fa-envelope"></i> krist@example.com</p>
-          <p><i class="fas fa-map-marker-alt"></i> 3891 Ranchview Dr. Richardson, California 62639</p>
+          <p><i class="far fa-envelope"></i> m&wstudio@example.com</p>
+          <p><i class="fas fa-map-marker-alt"></i> 3891 shri Dr. shahwaaz, 62639</p>
         </div>
       </div>
 
@@ -195,7 +195,7 @@ function loadFooter(params) {
         <img src="https://img.icons8.com/color/48/paypal.png" alt="paypal">
       </div>
       
-      <p class="copy-text">&copy; 2023 Krist All Rights are reserved</p>
+      <p class="copy-text">&copy; 2026 M&W STUDIIO All Rights are reserved</p>
 
       <div class="social-links">
         <a href="#"><i class="fab fa-facebook-f"></i></a>

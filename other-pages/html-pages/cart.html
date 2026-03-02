@@ -12,20 +12,26 @@
     <div id="header-placeholder"></div>
 
     <main class="container">
-      <h1>Your Shopping Bag</h1>
-      <div id="cart-items-container"></div>
+  <h1>Your Shopping Bag</h1>
+  
+  <div class="cart-main-content">
+    
+    <div id="cart-items-container"></div>
 
-      <div class="cart-summary">
-        <div>
-          <h3>Order Summary</h3>
-          <p>Total Items: <span id="total-qty">0</span></p>
-          <p>
-            Total Price: <strong>₹<span id="total-price">0</span></strong>
-          </p>
-          <button class="btn-primary" id="btn-primary">Checkout</button>
-        </div>
+    <div class="cart-summary">
+      <h3>Order Summary</h3>
+      <div class="summary-details">
+        <p>Total Items: <span id="total-qty">0</span></p>
+        <p>Total Price: <strong>₹<span id="total-price">0</span></strong></p>
       </div>
-    </main>
+      <button class="btn-primary" id="checkout-btn" onclick="openMobileModal()">
+        Checkout
+      </button>
+    </div>
+
+  </div> </main>
+
+
 
     <div id="footer"></div>
 

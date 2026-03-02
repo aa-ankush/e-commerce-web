@@ -252,51 +252,6 @@ a {
   flex-grow: 1;
 }
 
-/* styling for cart page ----------------------------------------------------------------------------------*/
-/* #cart-items-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
-    padding: 20px 0;
-}
-
-.cart-item {
-    text-align: center;
-    background: #fff;
-    transition: transform 0.3s ease;
-}
-
-.cart-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.cart-item-details {
-     padding: 15px 5px;
-     font-size: 0.9rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-bottom: 5px;
-    letter-spacing: 0.5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-} */
-
-/* .cart-item-details button {
-     padding: 8px 12px;
-    font-size: 0.75rem;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    ;
-} */
 
 /* suggeston */
 .end-message {
@@ -350,7 +305,6 @@ a {
   background-color: #2f2f2f;
   color: white;
   padding: 8px 12px;
-  width: 20%;
 }
 
 /* Header row styling */
@@ -811,5 +765,111 @@ h1 {
 
     .total-col {
       font-size: 14px;
+    }
+}
+
+
+
+
+/* Container for both sections */
+.cart-main-content {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start; /* This aligns them at the top */
+    margin-top: 20px;
+}
+
+#cart-items-container {
+    flex: 2; /* Takes up more space */
+}
+
+.cart-summary {
+    flex: 1; /* Takes up less space */
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    position: sticky; /* Optional: Keeps summary visible while scrolling */
+    top: 20px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .cart-main-content {
+        flex-direction: column; /* Stacks them on mobile */
+    }
+}
+
+
+/* Layout Alignment */
+.cart-layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start; /* Keeps summary at the top */
+    margin-top: 30px;
+}
+
+#cart-items-container {
+    flex: 2; /* Items take 66% width */
+}
+
+/* Styled Summary Block */
+.cart-summary {
+    flex: 1; /* Summary takes 33% width */
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.cart-summary h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    color: #555;
+}
+
+.summary-row.total {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px dashed #eee;
+    color: #000;
+    font-size: 1.1rem;
+}
+
+/* The Fixed Button */
+.checkout-btn {
+    width: 100%;
+    background: #2f2f2f;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.checkout-btn:hover {
+    background: #000;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .cart-layout {
+        flex-direction: column;
+    }
+    .cart-summary {
+        width: 100%;
     }
 }

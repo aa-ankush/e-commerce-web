@@ -51,7 +51,7 @@ function loadSiteComponents() {
         </div>
         <ul class="menu-list">
             <li class="menu-item has-submenu">
-                <a href="men-shirts.html">MEN <i data-lucide="chevron-right"></i></a>
+                <a href="#">MEN <i data-lucide="chevron-right"></i></a>
                 <div class="submenu">
                     <a href="men-shirt.html">Shirt</a>
                     <a href="men-tshirt.html">T-Shirt</a>

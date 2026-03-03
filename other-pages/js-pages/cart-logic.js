@@ -78,3 +78,35 @@ checkoutBtn.addEventListener("click", () => {
 
 
 
+function updateQuantity(id, change) {
+    // 1. Get existing quantities
+    let quantities = JSON.parse(localStorage.getItem('mw_cart_qty')) || {};
+
+    // 2. Initialize if not present
+    if (!quantities[id]) quantities[id] = 1;
+
+    // 3. Apply change
+    quantities[id] += change;
+
+    // 4. Safety check: Minimum 1
+    if (quantities[id] < 1) quantities[id] = 1;
+
+    // 5. Save and Refresh UI
+    localStorage.setItem('mw_cart_qty', JSON.stringify(quantities));
+    renderCart();
+}
+
+// Update removeFromCart to also clean up the quantity data
+function removeFromCart(id) {
+    let cart = JSON.parse(localStorage.getItem('mw_cart')) || [];
+    let quantities = JSON.parse(localStorage.getItem('mw_cart_qty')) || {};
+
+    cart = cart.filter(itemId => itemId !== id);
+    delete quantities[id]; // Remove quantity record
+
+    localStorage.setItem('mw_cart', JSON.stringify(cart));
+    localStorage.setItem('mw_cart_qty', JSON.stringify(quantities));
+
+    renderCart();
+    updateCartBadge();
+}

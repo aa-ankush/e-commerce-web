@@ -13,7 +13,7 @@ async function loadOffers() {
 
         grid.innerHTML = offerItems.map(item => `
             <div class="product-card" onclick="window.location.href='../html-pages/product-detail.html?id=${item.id}'">
-                <div class="image-container">
+                <div class="image-wrapper">
                     <img class="img" src="../../assets/images/men/${item.subcategory}s/${item.img}" alt="${item.name}">
                      <button type="button" class="wishlist-btn"
                 onclick="event.preventDefault(); event.stopPropagation(); handleWishlistClick(${item.id}, this)">
@@ -24,7 +24,7 @@ async function loadOffers() {
                     <div class="product-header">
                         <p class="product-name">${item.name}</p>
                         <div class="product-actions">
-                            <i data-lucide="bookmark"></i>
+                            
                         </div>
                     </div>
                     <div class="price-row">

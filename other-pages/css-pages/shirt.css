@@ -1,8 +1,43 @@
 /* css styling for products pages ------------------------------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: Helvetica, Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  color: #2f2f2f;
+  background-color: #f8f7f4;
+  padding-inline: 1rem;
+  font-family: "poppins", Arial, Helvetica, sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: 40px 40px;
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-bottom: 0px;
+}
+
 .product-page-container {
   max-width: 1400px;
   margin: 20px auto;
-  padding: 0 20px; 
+  padding: 0 20px;
   font-family: "Segoe UI", Tahoma, sans-serif;
 }
 
@@ -42,15 +77,11 @@
   gap: 20px;
 }
 
-
-
 .product-card {
   position: relative;
   transition: 0.3s;
   /* padding: 1rem; */
 }
-
-
 
 .image-wrapper {
   position: relative;
@@ -252,7 +283,6 @@ a {
   flex-grow: 1;
 }
 
-
 /* suggeston */
 .end-message {
   text-align: center;
@@ -383,493 +413,500 @@ h1 {
   text-align: center;
 }
 
-
-
 @media screen and (max-width: 480px) {
-    /* Target the product grids */
-    .product-grid {
-        display: grid !important;
-        /* Force exactly two equal columns */
-        grid-template-columns: repeat(2, 1fr) !important; 
-        /* Reduce gap so products have more space */
-        gap: 10px !important; 
-        /* padding: 10px !important; */
-    }
+  /* Target the product grids */
+  .product-grid {
+    display: grid !important;
+    /* Force exactly two equal columns */
+    grid-template-columns: repeat(2, 1fr) !important;
+    /* Reduce gap so products have more space */
+    gap: 10px !important;
+    /* padding: 10px !important; */
+  }
 
-    /* Adjust the card styling for smaller screens */
-    .product-card {
-        width: 100% !important; /* Ensure card fills its grid cell */
-        margin: 0 !important;
-    }
+  /* Adjust the card styling for smaller screens */
+  .product-card {
+    width: 100% !important; /* Ensure card fills its grid cell */
+    margin: 0 !important;
+  }
 
-    /* Shrink text and images slightly to fit the 2-column layout */
-    .product-card img {
-        /* height: 180px !important; */
-        object-fit: cover;
-    }
+  /* Shrink text and images slightly to fit the 2-column layout */
+  .product-card img {
+    /* height: 180px !important; */
+    object-fit: cover;
+  }
 
-    .product-image img {
-      height: 280px;
-    }
+  .product-image img {
+    height: 280px;
+  }
 
-    .product-title,.discount-price {
-      font-size: 12px;
-    }
+  .product-title,
+  .discount-price {
+    font-size: 12px;
+  }
 
-    
+  .info-area h3 {
+    font-size: 12px !important; /* Prevents long names from breaking the layout */
+  }
 
-    .info-area h3 {
-        font-size: 12px !important; /* Prevents long names from breaking the layout */
-    }
+  .nav-top {
+    padding: 10px 0 !important;
+    gap: 10px !important;
+    margin-bottom: 0px;
+  }
 
-        .nav-top {
-        padding: 10px 0 !important;
-        gap: 10px !important;
-        margin-bottom: 0px;
-    }
+  .nav-bottom {
+    flex-direction: column;
+    gap: 15px;
+    /* padding: 10px; */
+  }
 
-     .nav-bottom {
-        flex-direction: column;
-        gap: 15px;
-        /* padding: 10px; */
-    }
+  .search-container {
+    width: 100%; /* Search bar takes full width */
+  }
 
-    .search-container {
-        width: 100%; /* Search bar takes full width */
-    }
+  .pill-tags {
+    display: none;
+  }
 
-     .pill-tags {
-        display: none;
-    }
+  .navbar {
+    padding: 0px;
+  }
 
-    .navbar {
-        padding: 0px;
-    }
-
-    .header-main {
-      display: none;
-    }
+  .header-main {
+    display: none;
+  }
 }
 
 /* tost notifcation */
 
 .custom-alert {
-    position: fixed;
-    bottom: -100px; /* Hidden by default */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: white;
-    padding: 15px 30px;
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    transition: bottom 0.5s ease-in-out; /* Smooth slide effect */
-    z-index: 10000;
-    font-weight: 500;
+  position: fixed;
+  bottom: -100px; /* Hidden by default */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: bottom 0.5s ease-in-out; /* Smooth slide effect */
+  z-index: 10000;
+  font-weight: 500;
 }
 
 .custom-alert.show {
-    bottom: 30px; /* Slide up into view */
+  bottom: 30px; /* Slide up into view */
 }
-
-
-
-
-
 
 /* responsiveness------------------------------------------------- */
 
 /* --- TABLET VIEW (768px and below) --- */
 @media screen and (max-width: 768px) {
-    /* Navbar: Stack the search and pills vertically */
-    .nav-bottom {
-        flex-direction: column;
-        gap: 15px;
-        padding: 10px 10px;
-    }
+  /* Navbar: Stack the search and pills vertically */
+  .nav-bottom {
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 10px;
+  }
 
-    .search-container {
-        width: 100%; /* Search bar takes full width */
-    }
+  .search-container {
+    width: 100%; /* Search bar takes full width */
+  }
 
-    /* Grids: Show 2 items per row instead of 4 */
-    .product-grid, .category-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 15px;
-    }
+  /* Grids: Show 2 items per row instead of 4 */
+  .product-grid,
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15px;
+  }
 
-    /* Hero Slider: Adjust height for smaller screens */
-    .hero-slider {
-        height: 350px;
-    }
+  /* Hero Slider: Adjust height for smaller screens */
+  .hero-slider {
+    height: 350px;
+  }
 }
 
 /* --- MOBILE VIEW (480px and below) --- */
 @media screen and (max-width: 480px) {
-    /* Logo: Reduce size slightly */
-    .logo-text {
-        font-size: 1.2rem;
-    }
+  /* Logo: Reduce size slightly */
+  .logo-text {
+    font-size: 1.2rem;
+  }
 
-    /* Grids: Most items should stack in 1 or 2 columns */
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 10px;
-    }
+  /* Grids: Most items should stack in 1 or 2 columns */
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px;
+  }
 
-    .category-grid {
-        grid-template-columns: 1fr !important; /* Categories stack vertically */
-    }
+  .category-grid {
+    grid-template-columns: 1fr !important; /* Categories stack vertically */
+  }
 
-    /* Feature Section: Stack shipping/support items */
-    .features-section {
-        flex-direction: column;
-        gap: 20px;
-    }
+  /* Feature Section: Stack shipping/support items */
+  .features-section {
+    flex-direction: column;
+    gap: 20px;
+  }
 
-    /* Hero Section: Make images fit better */
-    .hero-slider {
-        height: 250px;
-    }
+  /* Hero Section: Make images fit better */
+  .hero-slider {
+    height: 250px;
+  }
 
-    /* Footer: Center links and stack them */
-    .footer-section {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-    
-    .links {
-        flex-direction: column;
-        gap: 10px;
-    }
+  /* Footer: Center links and stack them */
+  .footer-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .links {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 @media screen and (max-width: 480px) {
-    /* Reduce global container margins */
-    .container {
-        padding: 0 0 !important; /* Reduced from your desktop padding */
-        margin-top: 20px !important; /* Tighter vertical spacing between sections */
-    }
+  /* Reduce global container margins */
+  .container {
+    padding: 0 0 !important; /* Reduced from your desktop padding */
+    margin-top: 20px !important; /* Tighter vertical spacing between sections */
+  }
 
-    /* Navbar padding reduction */
-    /* .nav-container {
+  /* Navbar padding reduction */
+  /* .nav-container {
         padding: 5px 10px !important;
     } */
 
-    .nav-top {
-        padding: 10px 0 !important;
-        gap: 10px !important;
-        margin-bottom: 0px;
-    }
+  .nav-top {
+    padding: 10px 0 !important;
+    gap: 10px !important;
+    margin-bottom: 0px;
+  }
 
-    /* Reduce gaps in your product and category grids */
-    .product-grid, .category-grid {
-        gap: 8px !important;
-    }
+  /* Reduce gaps in your product and category grids */
+  .product-grid,
+  .category-grid {
+    gap: 8px !important;
+  }
 
-    /* Tighter spacing for section titles */
-    .section-title {
-        margin-bottom: 15px !important;
-        font-size: 1.4rem !important;
-    }
+  /* Tighter spacing for section titles */
+  .section-title {
+    margin-bottom: 15px !important;
+    font-size: 1.4rem !important;
+  }
 
-    /* Adjust the hero section to bleed closer to the edges */
-    .hero.container {
-        padding: 0 !important; /* Full-width hero looks better on mobile */
-    }
+  /* Adjust the hero section to bleed closer to the edges */
+  .hero.container {
+    padding: 0 !important; /* Full-width hero looks better on mobile */
+  }
 
-    .pill-tags {
-        display: none;
-    }
+  .pill-tags {
+    display: none;
+  }
 
-    .navbar {
-        padding: 0px;
-    }
+  .navbar {
+    padding: 0px;
+  }
 
-    .slider-track a {
-        width: 100%;
-    }
+  .slider-track a {
+    width: 100%;
+  }
 
-    .nav-right{
-        gap: 0px
-    } ;
+  .nav-right {
+    gap: 0px;
+  }
 
+  #arrival-track {
+    display: flex !important;
+    gap: 0 !important; /* Remove gaps for a clean full-width look */
+  }
 
-    #arrival-track {
-        display: flex !important;
-        gap: 0 !important; /* Remove gaps for a clean full-width look */
-    }
+  /* 3. Each product card now takes exactly one full screen width */
+  #arrival-track .slide-item {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    padding: 0 10px; /* Small inner padding so it doesn't touch the glass */
+    box-sizing: border-box;
+  }
 
-    /* 3. Each product card now takes exactly one full screen width */
-    #arrival-track .slide-item {
-        flex: 0 0 100% !important; 
-        max-width: 100% !important;
-        padding: 0 10px; /* Small inner padding so it doesn't touch the glass */
-        box-sizing: border-box;
-    }
+  /* 4. Ensure the image scales correctly */
+  #arrival-track .product-card img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 0; /* Optional: square edges look better for full-width */
+  }
 
-    /* 4. Ensure the image scales correctly */
-    #arrival-track .product-card img {
-        width: 100% !important;
-        height: auto !important;
-        border-radius: 0; /* Optional: square edges look better for full-width */
-    }
+  .testimonial-track .testimonial-card {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    padding: 10px; /* Small inner padding so it doesn't touch the glass */
+    box-sizing: border-box;
+  }
 
-    .testimonial-track .testimonial-card {
-         flex: 0 0 100% !important; 
-        max-width: 100% !important;
-        padding:  10px; /* Small inner padding so it doesn't touch the glass */
-        box-sizing: border-box;
-    }
+  .quote {
+    font-size: 13px;
+  }
 
-    .quote {
-        font-size: 13px;
-    }
-
-    @media screen and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     /* Change the container from flex to grid */
     .features-section {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important; /* Two equal columns */
-        gap: 15px !important; /* Spacing between the 4 items */
-        padding: 15px 10px !important;
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important; /* Two equal columns */
+      gap: 15px !important; /* Spacing between the 4 items */
+      padding: 15px 10px !important;
     }
 
     /* Adjust the individual items to fit the smaller boxes */
     .feature-item {
-        flex-direction: column !important; /* Stack icon on top of text */
-        text-align: center !important;
-        padding: 10px !important;
-        background: #f9f9f9; /* Optional: light background to define the boxes */
-        border-radius: 8px;
+      flex-direction: column !important; /* Stack icon on top of text */
+      text-align: center !important;
+      padding: 10px !important;
+      background: #f9f9f9; /* Optional: light background to define the boxes */
+      border-radius: 8px;
     }
-
-
 
     /* Shrink the icons and text slightly for mobile */
     .feature-icon i {
-        width: 24px !important;
-        height: 24px !important;
+      width: 24px !important;
+      height: 24px !important;
     }
 
     .feature-content h3 {
-        font-size: 0.9rem !important; /* Smaller titles to prevent wrapping */
-        margin-bottom: 5px !important;
+      font-size: 0.9rem !important; /* Smaller titles to prevent wrapping */
+      margin-bottom: 5px !important;
     }
 
     .feature-content p {
-        font-size: 0.75rem !important; /* Smaller description */
-        line-height: 1.2 !important;
+      font-size: 0.75rem !important; /* Smaller description */
+      line-height: 1.2 !important;
     }
 
-    .cart-icon,.user-icon {
-        border: none;
-    }
-
-    .cart-count-badge {
-        font-size: 10px;
-        align-items: center;
-        height: 16px;
-        width: 16px;
+    .cart-icon,
+    .user-icon {
+      border: none;
     }
 
     .cart-count-badge {
-    position: absolute;
-    left: 1.5rem;
-    bottom: 1.5rem;
+      font-size: 10px;
+      align-items: center;
+      height: 16px;
+      width: 16px;
+    }
+
+    .cart-count-badge {
+      position: absolute;
+      left: 1.5rem;
+      bottom: 1.5rem;
     }
 
     .product-page-container {
       padding: 0px;
     }
-
+  }
 }
-}
-
-
-
-
 
 .img {
   contain: content;
   width: 255px;
   height: 341px;
-
 }
-
-
-
-
 
 @media screen and (max-width: 480px) {
-    /* 1. Reduce Heading Size */
-    h1, .cart-title {
-        font-size: 1.5rem !important;
-        text-align: center;
-    }
+  /* 1. Reduce Heading Size */
+  h1,
+  .cart-title {
+    font-size: 1.5rem !important;
+    text-align: center;
+  }
 
-    /* 2. Fix the Table Headers */
-    .cart-header {
-        font-size: 10px; /* Much smaller font for headers */
-        gap: 5px;
-        padding-bottom: 10px;
-    }
+  /* 2. Fix the Table Headers */
+  .cart-header {
+    font-size: 10px; /* Much smaller font for headers */
+    gap: 5px;
+    padding-bottom: 10px;
+  }
 
+  .discount {
+    font-size: 8px;
+  }
 
-.cart-row {
-  display: flex;
-  gap: 6px;
+  .cart-row {
+    display: flex;
+    gap: 6px;
+  }
+
+  .product-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+  }
+
+  /* 3. Shrink Product Image */
+  .product-col img {
+    width: 80px !important; /* Smaller image to save space */
+    height: 100px;
+    object-fit: cover;
+  }
+
+  /* 4. Adjust Product Info */
+  .product-info h4 {
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+
+  .product-info p {
+    font-size: 12px;
+  }
+
+  /* 5. Handle Price and Quantity Layout */
+  .cart-item-row {
+    display: flex;
+    flex-wrap: wrap; /* Allow elements to wrap to the next line if needed */
+    gap: 10px;
+    align-items: center;
+  }
+
+  .quantity-col {
+    transform: scale(0.8); /* Shrink the +/- buttons slightly */
+    margin-top: 5px;
+  }
+
+  .price-col {
+    font-size: 14px;
+    /* font-weight: bold; */
+  }
+
+  .total-col {
+    font-size: 14px;
+  }
 }
-
-    .product-col {
-      display: flex;
-      flex-direction: column;
-      gap: 0px;
-    }
-
-    /* 3. Shrink Product Image */
-    .product-col img {
-        width: 80px !important; /* Smaller image to save space */
-        height: 100px;
-        object-fit: cover;
-    }
-
-    /* 4. Adjust Product Info */
-    .product-info h4 {
-        font-size: 14px;
-        margin-bottom: 2px;
-    }
-
-    .product-info p {
-        font-size: 12px;
-    }
-
-    /* 5. Handle Price and Quantity Layout */
-    .cart-item-row {
-        display: flex;
-        flex-wrap: wrap; /* Allow elements to wrap to the next line if needed */
-        gap: 10px;
-        align-items: center;
-    }
-
-    .quantity-col {
-        transform: scale(0.8); /* Shrink the +/- buttons slightly */
-        margin-top: 5px;
-    }
-
-    .price-col {
-        font-size: 14px;
-        /* font-weight: bold; */
-    }
-
-    .total-col {
-      font-size: 14px;
-    }
-}
-
-
-
 
 /* Container for both sections */
 .cart-main-content {
-    display: flex;
-    gap: 30px;
-    align-items: flex-start; /* This aligns them at the top */
-    margin-top: 20px;
+  display: flex;
+  gap: 30px;
+  align-items: flex-start; /* This aligns them at the top */
+  margin-top: 20px;
 }
 
 #cart-items-container {
-    flex: 2; /* Takes up more space */
+  flex: 2; /* Takes up more space */
 }
 
 .cart-summary {
-    flex: 1; /* Takes up less space */
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    position: sticky; /* Optional: Keeps summary visible while scrolling */
-    top: 20px;
+  flex: 1; /* Takes up less space */
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  position: sticky; /* Optional: Keeps summary visible while scrolling */
+  top: 20px;
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-    .cart-main-content {
-        flex-direction: column; /* Stacks them on mobile */
-    }
+  .cart-main-content {
+    flex-direction: column; /* Stacks them on mobile */
+  }
 }
-
 
 /* Layout Alignment */
 .cart-layout {
-    display: flex;
-    gap: 30px;
-    align-items: flex-start; /* Keeps summary at the top */
-    margin-top: 30px;
+  display: flex;
+  gap: 30px;
+  align-items: flex-start; /* Keeps summary at the top */
+  margin-top: 30px;
 }
 
 #cart-items-container {
-    flex: 2; /* Items take 66% width */
+  flex: 2; /* Items take 66% width */
 }
 
 /* Styled Summary Block */
 .cart-summary {
-    flex: 1; /* Summary takes 33% width */
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid #eee;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  flex: 1; /* Summary takes 33% width */
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .cart-summary h3 {
-    margin-top: 0;
-    font-size: 1.2rem;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 20px;
+  margin-top: 0;
+  font-size: 1.2rem;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
 }
 
 .summary-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 12px;
-    color: #555;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  color: #555;
 }
 
 .summary-row.total {
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 2px dashed #eee;
-    color: #000;
-    font-size: 1.1rem;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 2px dashed #eee;
+  color: #000;
+  font-size: 1.1rem;
 }
 
 /* The Fixed Button */
 .checkout-btn {
-    width: 100%;
-    background: #2f2f2f;
-    color: white;
-    border: none;
-    padding: 15px;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background 0.3s;
+  width: 100%;
+  background: #2f2f2f;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s;
 }
 
 .checkout-btn:hover {
-    background: #000;
+  background: #000;
 }
 
 /* Mobile View */
 @media (max-width: 768px) {
-    .cart-layout {
-        flex-direction: column;
-    }
-    .cart-summary {
-        width: 100%;
-    }
+  .cart-layout {
+    flex-direction: column;
+  }
+  .cart-summary {
+    width: 100%;
+  }
+}
+
+
+/* style for offer page */
+
+.price-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.current-price {
+  font-weight: bold;
+  color: #000;
+}
+
+.original-price {
+  color: #888;
+  text-decoration: line-through;
+}
+
+.discount {
+  color: #ff4d4d;
+  font-weight: bold;
 }
